@@ -1,0 +1,163 @@
+@use "../helpers" as *;
+
+// ==================== Dark Mode Theme ====================
+.dark-mode {
+  // ========== Colors ==========
+  --primary-color: #{$primary-color};
+  --primary-light: rgba(56, 182, 255, 0.2);
+  --primary-dark: #5ac8ff;
+  --secondary-color: #{$secondary-color};
+
+  // ========== Backgrounds ==========
+  --background-color: #0a0a0a;
+  --section-bg: #141414;
+  --card-bg: #1e1e1e;
+  --navbar-bg: #1a1a1a;
+  --sidebar-bg: #1a1a1a;
+  --footer-bg: #0f0f0f;
+
+  // ========== Text Colors ==========
+  --text-color: #e8e8e8;
+  --text-muted: #a0a0a0;
+  --text-light: #707070;
+  --heading-color: #f0f0f0;
+
+  // ========== Borders ==========
+  --border-color: #2a2a2a;
+  --border-light: #202020;
+
+  // ========== Inputs & Forms ==========
+  --input-bg: #252525;
+  --input-border: #3a3a3a;
+  --input-focus-border: #{$primary-color};
+  --input-disabled-bg: #1a1a1a;
+
+  // ========== Buttons ==========
+  --btn-primary-bg: #{$primary-color};
+  --btn-primary-hover: #5ac8ff;
+  --btn-secondary-bg: #2a2a2a;
+  --btn-secondary-hover: #3a3a3a;
+
+  // ========== Tables ==========
+  --table-bg: #1e1e1e;
+  --table-hover: #252525;
+  --table-border: #2a2a2a;
+  --table-header-bg: #252525;
+
+  // ========== Cards ==========
+  --card-border: #2a2a2a;
+  --card-hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  // ========== Modals ==========
+  --modal-bg: #1e1e1e;
+  --modal-backdrop: rgba(0, 0, 0, 0.8);
+
+  // ========== Toasts ==========
+  --toast-bg: #2a2a2a;
+  --toast-text: #e8e8e8;
+
+  // ========== Scrollbar ==========
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #{$primary-color};
+  --scrollbar-thumb-hover: #5ac8ff;
+
+  // ========== Shadows ==========
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.6);
+
+  // ========== Status Colors ==========
+  --status-success-bg: rgba(40, 167, 69, 0.2);
+  --status-success-text: #4ade80;
+  --status-warning-bg: rgba(255, 193, 7, 0.2);
+  --status-warning-text: #fbbf24;
+  --status-danger-bg: rgba(220, 53, 69, 0.2);
+  --status-danger-text: #f87171;
+  --status-info-bg: rgba(23, 162, 184, 0.2);
+  --status-info-text: #38bdf8;
+
+  // ========== Page Specific ==========
+  --hero-overlay: rgba(0, 0, 0, 0.7);
+  --section-divider: #2a2a2a;
+
+  // ========== Chat/AI Specific ==========
+  --chat-bg: #1a1a1a;
+  --chat-user-bubble: linear-gradient(
+    135deg,
+    #{$primary-color} 0%,
+    #1a8cff 100%
+  );
+  --chat-bot-bubble: #2a2a2a;
+  --chat-input-bg: #252525;
+
+  // ========== Progress/Stats ==========
+  --progress-bg: #2a2a2a;
+  --progress-fill: #{$primary-color};
+  --stat-card-bg: #1e1e1e;
+
+  // ========== Skeleton Loading ==========
+  --skeleton-base: #2a2a2a;
+  --skeleton-highlight: #3a3a3a;
+}
+
+// ==================== Dark Mode Specific Adjustments ====================
+.dark-mode {
+  // Ensure proper contrast
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  // Links - brighter in dark mode
+  a {
+    color: #5ac8ff;
+
+    &:hover {
+      color: #7dd3ff;
+    }
+  }
+
+  // Code blocks
+  code,
+  pre {
+    background: #2a2a2a;
+    color: #e8e8e8;
+  }
+
+  // Selection
+  ::selection {
+    background-color: var(--primary-color);
+    color: $white;
+  }
+
+  // Focus visible
+  :focus-visible {
+    outline-color: #5ac8ff;
+  }
+
+  // Images - slight reduction in brightness
+  img:not(.no-filter) {
+    opacity: 0.95;
+  }
+
+  // Invert filter for certain icons/images
+  .invert-dark {
+    filter: invert(1);
+  }
+}
+
+// ==================== Auto Dark Mode (System Preference) ====================
+@media (prefers-color-scheme: dark) {
+  :root:not(.light-mode):not(.dark-mode) {
+    // Same as .dark-mode
+    --background-color: #0a0a0a;
+    --section-bg: #141414;
+    --card-bg: #1e1e1e;
+    --text-color: #e8e8e8;
+    --text-muted: #a0a0a0;
+    --border-color: #2a2a2a;
+
+    // ... (inherit all dark mode variables)
+  }
+}

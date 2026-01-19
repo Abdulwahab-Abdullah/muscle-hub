@@ -1,0 +1,292 @@
+@use "variables" as vars;
+
+// ==================== Fade Animations ====================
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ==================== Slide Animations ====================
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// ==================== Bounce Animation ====================
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// ==================== Pulse Animation ====================
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
+
+// ==================== Spin Animation ====================
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ==================== Shake Animation ====================
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+// ==================== Scale Animation ====================
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+// ==================== Skeleton Loading ====================
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// ==================== Toast Animations ====================
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(120%) translateY(-20px) rotate(-4deg) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) rotate(0deg) scale(1);
+  }
+}
+@keyframes toastSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(120%) translateY(-20px);
+  }
+}
+
+// ==================== Arrow Move ====================
+@keyframes arrowMoveEn {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes arrowMoveAr {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+// ==================== Typing Indicator ====================
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    background: #cbd5e0;
+  }
+  30% {
+    transform: translateY(-10px);
+    background: var(--primary-color);
+  }
+}
+
+// ==================== Progress Bar Fill ====================
+@keyframes progressFill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+// ==================== Glow Effect ====================
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--primary-color),
+      0 0 10px var(--primary-color);
+  }
+  50% {
+    box-shadow:
+      0 0 10px var(--primary-color),
+      0 0 20px var(--primary-color);
+  }
+}
+
+// ==================== Utility Classes ====================
+.animate-fadeIn {
+  animation: fadeIn vars.$duration-base ease;
+}
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+.animate-shake {
+  animation: shake 0.5s ease;
+}
+
+// ==================== Transition Classes ====================
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity vars.$duration-base ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: all vars.$duration-slow ease;
+}
+.fade-slide-enter-from,
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+// ==================== Toast Transition ====================
+.toast-enter-active {
+  animation: toastSlideIn 0.4s ease;
+}
+.toast-leave-active {
+  animation: toastSlideOut 0.4s ease;
+}

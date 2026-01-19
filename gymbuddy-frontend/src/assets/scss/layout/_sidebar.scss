@@ -1,0 +1,342 @@
+@use "../helpers" as *;
+
+// ==================== Sidebar Variables ====================
+$sidebar-transition: all 0.25s ease;
+
+// ==================== Main Sidebar ====================
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: $sidebar-width-desktop;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  z-index: z(sticky);
+  @include transition(transform, width);
+
+  // Mobile collapsed state
+  &.mobile-mode {
+    width: $sidebar-width-mobile;
+  }
+
+  // Collapsed state
+  &.collapsed {
+    width: $sidebar-width-mobile;
+
+    .logo-text,
+    .nav-label,
+    .menu-title {
+      display: none;
+    }
+
+    .logo-section {
+      justify-content: center;
+    }
+
+    .nav-item {
+      justify-content: center;
+    }
+  }
+
+  // Hidden state
+  &.hidden {
+    transform: translateX(-100%);
+  }
+}
+
+// ==================== Sidebar Content ====================
+.sidebar-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: spacing(7) spacing(4);
+  overflow-y: auto;
+  @include custom-scrollbar;
+}
+
+// ==================== Logo Section ====================
+.logo-section {
+  @include flex-center;
+  gap: spacing(3);
+  padding-bottom: spacing(5);
+  margin-bottom: spacing(6);
+  border-bottom: 1px solid var(--border-color);
+
+  .logo-icon {
+    font-size: $font-size-3xl;
+    color: var(--primary-color);
+  }
+
+  .logo-text {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: var(--primary-color);
+
+    .logo-highlight {
+      color: var(--text-color);
+    }
+  }
+}
+
+// ==================== Hide/Show Button ====================
+.hide-btn {
+  @include flex-center;
+  width: 100%;
+  margin-bottom: spacing(2);
+  cursor: pointer;
+  font-size: $font-size-base;
+  color: var(--text-muted);
+  @include transition(color);
+
+  &:hover {
+    color: var(--primary-color);
+  }
+}
+
+.show-sidebar-btn {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: $white;
+  border: none;
+  padding: spacing(4) spacing(2);
+  border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+  cursor: pointer;
+  z-index: z(sticky) - 1;
+  @include transition(background-color, padding);
+  @include shadow-md;
+
+  &:hover {
+    background: $primary-dark;
+    padding-left: spacing(3);
+  }
+
+  i {
+    font-size: $font-size-xl;
+  }
+}
+
+// ==================== Menu ====================
+.menu-wrapper {
+  margin-bottom: spacing(6);
+}
+
+.menu-title {
+  font-size: 0.7rem;
+  font-weight: $font-weight-bold;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: spacing(2);
+  padding-left: spacing(3);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: spacing(1);
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  @include flex-center;
+  gap: spacing(4);
+  padding: spacing(3) spacing(4);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-color);
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  @include transition(background-color, color);
+
+  .nav-icon {
+    font-size: $font-size-xl;
+    width: 26px;
+    text-align: center;
+    color: var(--text-muted);
+    @include transition(color);
+  }
+
+  .nav-label {
+    flex: 1;
+  }
+
+  &:hover {
+    background: var(--primary-light);
+    color: var(--primary-color);
+
+    .nav-icon {
+      color: var(--primary-color);
+    }
+  }
+
+  &.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: $font-weight-semibold;
+
+    .nav-icon {
+      color: var(--primary-color);
+    }
+  }
+}
+
+// Mobile nav item
+.mobile-mode .nav-item {
+  justify-content: center;
+  padding: spacing(3) 0;
+
+  .nav-icon {
+    font-size: $font-size-2xl;
+    width: auto;
+  }
+}
+
+// ==================== Account Section ====================
+.account-section {
+  margin-top: auto;
+  padding-top: spacing(4);
+  border-top: 1px solid var(--border-color);
+
+  .account-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: spacing(1);
+    padding: 0;
+    margin: 0;
+
+    .nav-item {
+      @include flex-center;
+      gap: spacing(3);
+      padding: spacing(3) spacing(4);
+      border-radius: var(--border-radius-sm);
+      color: var(--text-color);
+      font-weight: $font-weight-medium;
+      text-decoration: none;
+      @include transition(background-color, color);
+      background: transparent;
+
+      .nav-icon {
+        font-size: $font-size-xl;
+        width: 26px;
+        text-align: center;
+      }
+
+      &:hover {
+        background: var(--primary-light);
+        color: var(--primary-color);
+
+        .nav-icon {
+          color: var(--primary-color);
+        }
+      }
+
+      &.active {
+        background: var(--primary-light);
+        color: var(--primary-color);
+        font-weight: $font-weight-semibold;
+
+        .nav-icon {
+          color: var(--primary-color);
+        }
+      }
+    }
+
+    // Logout Button
+    .logout-btn {
+      width: 100%;
+      @include flex-center;
+      gap: spacing(3);
+      padding: spacing(3) spacing(4);
+      border-radius: var(--border-radius-sm);
+      border: 2px solid rgba(220, 53, 69, 0.3);
+      background: transparent;
+      color: $danger !important;
+      font-weight: $font-weight-semibold;
+      cursor: pointer;
+      @include transition(background-color, border-color);
+
+      .nav-icon {
+        color: $danger !important;
+        font-size: $font-size-xl;
+        width: 26px;
+        text-align: center;
+      }
+
+      &:hover {
+        background: rgba(220, 53, 69, 0.08);
+        border-color: $danger;
+      }
+    }
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  .sidebar {
+    inset: 0 0 0 auto;
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+
+    &.hidden {
+      transform: translateX(100%);
+    }
+  }
+
+  .show-sidebar-btn {
+    left: auto;
+    right: 0;
+    border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+
+    &:hover {
+      padding-left: spacing(2);
+      padding-right: spacing(3);
+    }
+
+    i::before {
+      content: "\f104"; // Reverse arrow
+    }
+  }
+
+  .menu-title {
+    padding-left: 0;
+    padding-right: spacing(3);
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .sidebar {
+    width: $sidebar-width-mobile;
+
+    .logo-text,
+    .nav-label,
+    .menu-title {
+      display: none;
+    }
+
+    .logo-section {
+      justify-content: center;
+    }
+
+    .nav-item {
+      justify-content: center;
+      padding: spacing(3) 0;
+
+      .nav-icon {
+        font-size: $font-size-2xl;
+      }
+    }
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  .sidebar,
+  .show-sidebar-btn {
+    @include print-hide;
+  }
+}

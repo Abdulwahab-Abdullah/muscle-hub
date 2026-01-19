@@ -1,0 +1,390 @@
+@use "../helpers" as *;
+
+// ==================== Form Group ====================
+.form-group {
+  margin-bottom: spacing(6);
+
+  label {
+    display: block;
+    font-weight: $font-weight-semibold;
+    color: var(--text-color);
+    margin-bottom: spacing(2);
+    font-size: $font-size-base;
+  }
+
+  small {
+    display: block;
+    margin-top: spacing(1);
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+  }
+}
+
+// ==================== Form Inputs ====================
+.form-control {
+  @include input-base;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+textarea,
+select {
+  @include input-base;
+}
+
+// ==================== Textarea ====================
+textarea {
+  min-height: 120px;
+  resize: vertical;
+
+  &.no-resize {
+    resize: none;
+  }
+}
+
+// ==================== Select ====================
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236c757d' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right spacing(4) center;
+  background-size: 12px;
+  padding-right: spacing(10);
+  appearance: none;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+// ==================== Checkbox & Radio ====================
+input[type="checkbox"],
+input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: spacing(2);
+  margin-bottom: spacing(3);
+
+  .form-check-input {
+    margin: 0;
+  }
+
+  .form-check-label {
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// ==================== Input Group ====================
+.input-group {
+  display: flex;
+  align-items: stretch;
+
+  .input-group-text {
+    @include flex-center;
+    padding: $input-padding-y $input-padding-x;
+    background: var(--section-bg);
+    border: $input-border-width solid var(--border-color);
+    border-right: none;
+    color: var(--text-muted);
+    font-size: $font-size-base;
+    white-space: nowrap;
+    border-radius: $input-border-radius 0 0 $input-border-radius;
+  }
+
+  .form-control {
+    border-radius: 0 $input-border-radius $input-border-radius 0;
+  }
+}
+
+// ==================== Form Row ====================
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: spacing(6);
+
+  @include respond-below(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// ==================== Validation States ====================
+.form-control {
+  &.is-valid {
+    border-color: $success;
+
+    &:focus {
+      border-color: $success;
+      box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+    }
+  }
+
+  &.is-invalid {
+    border-color: $danger;
+
+    &:focus {
+      border-color: $danger;
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+  }
+}
+
+.valid-feedback {
+  display: block;
+  margin-top: spacing(1);
+  font-size: $font-size-sm;
+  color: $success;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: spacing(1);
+  font-size: $font-size-sm;
+  color: $danger;
+}
+
+// ==================== Custom Inputs ====================
+.custom-input {
+  @include input-base;
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid var(--primary-color);
+}
+
+.qty-input,
+.qty-input-small {
+  @include input-base;
+  text-align: center;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+}
+
+.qty-input {
+  width: 60px;
+}
+
+.qty-input-small {
+  width: 55px;
+}
+
+.search-input {
+  @include input-base;
+  padding-left: spacing(12);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: spacing(4) center;
+  background-size: 16px;
+}
+
+// ==================== Auth Forms ====================
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: calc(100vh + 340px);
+  padding: map-get($spacing, 6);
+  background: var(--background-color);
+  border-radius: spacing(2);
+
+  .auth-card {
+    width: 100%;
+    max-width: 400px; // أصغر من قبل لتقليل الطول
+    padding: map-get($spacing, 6); // أقل من السابق
+    border-radius: var(--border-radius-lg);
+    background: var(--card-bg);
+    @include shadow-lg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      text-align: center;
+      margin-bottom: map-get($spacing, 4);
+      color: var(--text-color);
+    }
+
+    .auth-toggle {
+      display: flex;
+      justify-content: center;
+      gap: map-get($spacing, 3);
+      margin-bottom: map-get($spacing, 4);
+
+      .btn {
+        min-width: 100px;
+        font-weight: $font-weight-semibold;
+        border-radius: var(--border-radius);
+        @include transition(all);
+
+        &.btn-primary {
+          background: var(--btn-primary-bg);
+          color: $white;
+
+          &:hover {
+            background: var(--btn-primary-hover);
+          }
+        }
+
+        &.btn-outline-primary {
+          background: transparent;
+          border: 1px solid var(--btn-primary-bg);
+          color: var(--btn-primary-bg);
+
+          &:hover {
+            background: var(--btn-primary-bg);
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .form-group {
+      margin-bottom: map-get($spacing, 3);
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: map-get($spacing, 3);
+      padding: map-get($spacing, 2);
+      font-weight: $font-weight-semibold;
+      border-radius: var(--border-radius);
+      @include transition(all);
+
+      &:hover {
+        background: var(--btn-primary-hover);
+        color: $white;
+      }
+    }
+  }
+}
+
+// ==================== Toggle Switch ====================
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      background: var(--primary-color);
+
+      &::before {
+        transform: translateX(30px);
+      }
+    }
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: $gray-400;
+    @include transition(background);
+    border-radius: 30px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background: $white;
+      @include transition(transform);
+      border-radius: 50%;
+      @include shadow-sm;
+    }
+  }
+}
+
+// ==================== File Input ====================
+input[type="file"] {
+  &::file-selector-button {
+    @include btn-primary;
+    margin-right: spacing(4);
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  select {
+    background-position: left spacing(4) center;
+    padding-right: $input-padding-x;
+    padding-left: spacing(10);
+  }
+
+  .input-group {
+    .input-group-text {
+      border-right: $input-border-width solid var(--border-color);
+      border-left: none;
+      border-radius: 0 $input-border-radius $input-border-radius 0;
+    }
+
+    .form-control {
+      border-radius: $input-border-radius 0 0 $input-border-radius;
+    }
+  }
+
+  .search-input {
+    padding-left: $input-padding-x;
+    padding-right: spacing(12);
+    background-position: right spacing(4) center;
+  }
+
+  input[type="file"]::file-selector-button {
+    margin-right: 0;
+    margin-left: spacing(4);
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .auth-wrapper {
+    padding: map-get($spacing, 3);
+
+    .auth-card {
+      padding: map-get($spacing, 4);
+      max-width: 100%;
+
+      .auth-toggle {
+        flex-direction: column;
+        gap: map-get($spacing, 2);
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

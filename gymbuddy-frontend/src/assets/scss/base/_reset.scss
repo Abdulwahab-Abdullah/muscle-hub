@@ -1,0 +1,142 @@
+@use "../helpers" as *;
+
+// ==================== Modern CSS Reset ====================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+
+  @include respond-to(lg) {
+    font-size: 18px;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  @include transition(background-color, color);
+  overflow-x: hidden;
+}
+
+// ==================== Typography Reset ====================
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: var(--text-color);
+  margin-bottom: spacing(4);
+}
+
+p {
+  margin-bottom: spacing(4);
+}
+
+// ==================== Links ====================
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  @include transition(color);
+
+  &:hover {
+    color: $primary-dark;
+  }
+}
+
+// ==================== Lists ====================
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// ==================== Images & Media ====================
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// ==================== Forms ====================
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// ==================== Tables ====================
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// ==================== Remove Arrows from Number Inputs ====================
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+// ==================== Focus Styles ====================
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// ==================== Selection ====================
+::selection {
+  background-color: var(--primary-color);
+  color: $white;
+}
+
+::-moz-selection {
+  background-color: var(--primary-color);
+  color: $white;
+}
+
+// ==================== Smooth Scrolling for Reduced Motion ====================
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,403 @@
+@use "../helpers" as *;
+
+// ==================== Base Skeleton ====================
+.skeleton-wrapper {
+  width: 100%;
+  padding: spacing(4);
+}
+
+.skeleton-line {
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: spacing(3);
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+// ==================== Dashboard Stats Skeleton ====================
+.skeleton-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: spacing(6);
+  margin-bottom: spacing(8);
+}
+
+.skeleton-card {
+  background: var(--card-bg);
+  padding: spacing(6);
+  border-radius: var(--border-radius);
+  @include shadow-sm;
+}
+
+.skeleton-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: spacing(4);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 60%;
+  margin-bottom: spacing(2);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+.skeleton-value {
+  height: 32px;
+  width: 80%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+// ==================== Chart Skeleton ====================
+.skeleton-chart {
+  background: var(--card-bg);
+  padding: spacing(6);
+  border-radius: var(--border-radius);
+  @include shadow-sm;
+  margin-bottom: spacing(8);
+}
+
+.skeleton-chart-title {
+  height: 24px;
+  width: 40%;
+  margin-bottom: spacing(6);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+.skeleton-chart-body {
+  height: 300px;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius);
+}
+
+// ==================== Table Skeleton ====================
+.skeleton-table {
+  background: var(--card-bg);
+  padding: spacing(6);
+  border-radius: var(--border-radius);
+  @include shadow-sm;
+}
+
+.skeleton-table-header {
+  height: 40px;
+  width: 100%;
+  margin-bottom: spacing(4);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+.skeleton-table-row {
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: spacing(2);
+}
+
+// ==================== Simple Card Skeleton ====================
+.skeleton-card-simple {
+  background: var(--card-bg);
+  padding: spacing(6);
+  border-radius: var(--border-radius);
+  @include shadow-sm;
+}
+
+.skeleton-card-title {
+  height: 24px;
+  width: 50%;
+  margin-bottom: spacing(4);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+}
+
+.skeleton-card-text {
+  height: 16px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: spacing(2);
+
+  &.short {
+    width: 70%;
+  }
+}
+
+// ==================== Exercise Cards Skeleton ====================
+.exercise-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: spacing(6);
+}
+
+.exercise-skeleton-card {
+  height: 350px;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  @include shadow-sm;
+  padding: spacing(4);
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-img {
+  height: 150px;
+  border-radius: var(--border-radius);
+  margin-bottom: spacing(3);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.skeleton-text {
+  height: 14px;
+  width: 100%;
+  margin-bottom: spacing(2);
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: var(--border-radius-sm);
+
+  &.short {
+    width: 70%;
+  }
+}
+
+.skeleton-btn {
+  height: 36px;
+  border-radius: var(--border-radius-sm);
+  margin-top: auto;
+  background: linear-gradient(
+    90deg,
+    var(--skeleton-base) 25%,
+    var(--skeleton-highlight) 50%,
+    var(--skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+// ==================== Default Skeleton ====================
+.skeleton-default {
+  .skeleton-line {
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--skeleton-base) 25%,
+      var(--skeleton-highlight) 50%,
+      var(--skeleton-base) 75%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: spacing(3);
+  }
+}
+
+// ==================== Progress Page Skeleton ====================
+.progress-page {
+  .skeleton-wrapper {
+    .skeleton-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: spacing(6);
+      margin-bottom: spacing(8);
+    }
+
+    .skeleton-card,
+    .skeleton-chart,
+    .skeleton-form {
+      background: linear-gradient(
+        90deg,
+        var(--skeleton-base) 25%,
+        var(--skeleton-highlight) 50%,
+        var(--skeleton-base) 75%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+      border-radius: var(--border-radius-lg);
+    }
+
+    .skeleton-card {
+      height: 180px;
+    }
+
+    .skeleton-chart {
+      height: 400px;
+      margin-bottom: spacing(8);
+    }
+
+    .skeleton-form {
+      height: 200px;
+    }
+  }
+}
+
+// ==================== Table Skeleton (History Section) ====================
+.history-section {
+  .table-skeleton {
+    .skeleton-row {
+      height: 60px;
+      background: linear-gradient(
+        90deg,
+        var(--skeleton-base) 25%,
+        var(--skeleton-highlight) 50%,
+        var(--skeleton-base) 75%
+      );
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+      border-radius: var(--border-radius);
+      margin-bottom: spacing(2);
+    }
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .skeleton-stats,
+  .exercise-skeleton-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skeleton-wrapper {
+    padding: spacing(3);
+  }
+
+  .skeleton-card,
+  .skeleton-chart,
+  .skeleton-table,
+  .skeleton-card-simple {
+    padding: spacing(4);
+  }
+}
+
+@include respond-below(sm) {
+  .skeleton-chart-body {
+    height: 200px;
+  }
+
+  .exercise-skeleton-card {
+    height: 300px;
+  }
+
+  .skeleton-img {
+    height: 120px;
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  .skeleton-wrapper {
+    direction: rtl;
+  }
+}
+
+// ==================== Dark Mode Adjustments ====================
+.dark-mode {
+  .skeleton-card,
+  .skeleton-chart,
+  .skeleton-table,
+  .skeleton-card-simple,
+  .exercise-skeleton-card {
+    @include shadow-md;
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  .skeleton-wrapper {
+    display: none !important;
+  }
+}

@@ -1,0 +1,122 @@
+@use "../helpers" as *;
+
+// ==================== Hero Section ====================
+.hero {
+  background-image: url("../photos/homePage1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: $white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); // overlay
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  h1 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: spacing(4);
+  }
+
+  p {
+    font-size: $font-size-lg;
+    max-width: 700px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+// ==================== Feature Cards ====================
+.feature-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-xl);
+  padding: spacing(6);
+  text-align: center;
+  @include shadow-lg;
+  @include transition(all);
+
+  i {
+    font-size: $font-size-4xl;
+    color: var(--primary-color);
+    margin-bottom: spacing(4);
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: var(--heading-color);
+    margin-bottom: spacing(2);
+  }
+
+  p {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    @include shadow-xl;
+  }
+}
+
+// ==================== Buttons ====================
+.btn {
+  @include transition(all);
+
+  &:hover {
+    transform: translateY(-3px);
+    @include shadow-md;
+  }
+}
+
+// ==================== Dark Mode ====================
+.dark-mode {
+  .hero::before {
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  .feature-card {
+    background: var(--card-bg);
+    color: var(--text-color);
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .hero {
+    min-height: 420px;
+
+    h1 {
+      font-size: $font-size-3xl;
+    }
+
+    p {
+      font-size: $font-size-base;
+      padding: 0 spacing(4);
+    }
+  }
+}
+
+@include respond-below(sm) {
+  .hero {
+    min-height: 360px;
+  }
+
+  .feature-card {
+    padding: spacing(5);
+  }
+}

@@ -1,0 +1,202 @@
+// ==================== Color System ====================
+// Primary Colors
+$primary-color: #38b6ff;
+$primary-light: rgba(56, 182, 255, 0.15);
+$primary-dark: #0077e6;
+$secondary-color: #667eea;
+
+// Neutral Colors
+$white: #ffffff;
+$black: #000000;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+// Semantic Colors
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #17a2b8;
+
+// ==================== Theme Variables ====================
+:root {
+  // Colors
+  --primary-color: #{$primary-color};
+  --primary-light: #{$primary-light};
+  --secondary-color: #{$secondary-color};
+
+  // Backgrounds
+  --background-color: #{$gray-100};
+  --section-bg: #{$gray-200};
+  --card-bg: #{$white};
+
+  // Text
+  --text-color: #{$gray-900};
+  --text-muted: #{$gray-600};
+  --text-light: #{$gray-500};
+
+  // Borders
+  --border-color: #{$gray-300};
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
+  // Shadows
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  // Scrollbar
+  --scrollbar-thumb: #{$primary-color};
+  --scrollbar-thumb-hover: #{$primary-dark};
+
+  // Transitions
+  --transition-duration-fast: 0.15s;
+  --transition-duration-base: 0.3s;
+  --transition-duration-slow: 0.5s;
+
+  --transition-timing-fast: ease;
+  --transition-timing-base: ease;
+  --transition-timing-slow: ease;
+}
+
+// ==================== Dark Mode Variables ====================
+.dark-mode {
+  --background-color: #121212;
+  --section-bg: #1c1c1c;
+  --card-bg: #2c2c2c;
+
+  --text-color: #e0e0e0;
+  --text-muted: #adb5bd;
+  --text-light: #6c757d;
+
+  --border-color: #3a3a3a;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 12px 50px rgba(0, 0, 0, 0.25);
+}
+
+// ==================== Spacing System ====================
+$spacing-unit: 0.25rem; // 4px
+
+$spacing: (
+  0: 0,
+  1: $spacing-unit,
+  2: $spacing-unit * 2,
+  3: $spacing-unit * 3,
+  4: $spacing-unit * 4,
+  5: $spacing-unit * 5,
+  6: $spacing-unit * 6,
+  7: $spacing-unit * 7,
+  8: $spacing-unit * 8,
+  10: $spacing-unit * 10,
+  12: $spacing-unit * 12,
+  14: $spacing-unit * 14,
+  // 3.5rem
+  16: $spacing-unit * 16, // 4rem
+);
+
+// ==================== Typography ====================
+$font-family-base:
+  "Poppins",
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
+$font-family-heading: "Poppins", sans-serif;
+$font-family-mono: "Courier New", monospace;
+
+$font-size-base: 1rem; // 16px
+$font-size-sm: 0.875rem; // 14px
+$font-size-lg: 1.125rem; // 18px
+$font-size-xl: 1.25rem; // 20px
+$font-size-2xl: 1.5rem; // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem; // 36px
+$font-size-5xl: 3rem; // 48px
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// ==================== Breakpoints ====================
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// ==================== Z-Index Scale ====================
+$z-index: (
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  modal-backdrop: 1040,
+  modal: 1050,
+  popover: 1060,
+  tooltip: 1070,
+  toast: 9999,
+);
+
+// ==================== Animation Durations ====================
+$duration-fast: 150ms;
+$duration-base: 300ms;
+$duration-slow: 500ms;
+
+// ==================== Component Specific ====================
+// Navbar
+$navbar-height: 70px;
+$navbar-padding: 1rem 1.5rem;
+
+// Sidebar
+$sidebar-width-desktop: 280px;
+$sidebar-width-mobile: 75px;
+
+// Profile Bar
+$profile-bar-height: 84px;
+
+// Cards
+$card-padding: 1.5rem;
+$card-border-radius: var(--border-radius);
+
+// Buttons
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 1.5rem;
+$btn-border-radius: var(--border-radius-sm);
+
+// Forms
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+$input-border-radius: var(--border-radius-sm);
+$input-border-width: 2px;
+$input-focus-border-color: var(--primary-color);
+
+// Tables
+$table-cell-padding: 1rem;
+$table-border-color: var(--border-color);
+
+// Modals
+$modal-backdrop-opacity: 0.5;
+$modal-border-radius: var(--border-radius-lg);
+
+// Toasts
+$toast-border-radius: var(--border-radius);
+$toast-padding: 1rem 1.25rem;

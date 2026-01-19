@@ -1,0 +1,139 @@
+@use "../helpers" as *;
+
+// ==================== Base Badge ====================
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: spacing(1) spacing(3);
+  border-radius: 999px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+// ==================== Badge Variants ====================
+.badge-primary {
+  background: var(--primary-color);
+  color: $white;
+}
+
+.badge-secondary {
+  background: $gray-600;
+  color: $white;
+}
+
+.badge-success {
+  background: $success;
+  color: $white;
+}
+
+.badge-danger {
+  background: $danger;
+  color: $white;
+}
+
+.badge-warning {
+  background: $warning;
+  color: $gray-900;
+}
+
+.badge-info {
+  background: $info;
+  color: $white;
+}
+
+.badge-light {
+  background: $gray-200;
+  color: $gray-900;
+}
+
+.badge-dark {
+  background: $gray-900;
+  color: $white;
+}
+
+// ==================== Soft Badges ====================
+.badge-soft-primary {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.badge-soft-success {
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.badge-soft-danger {
+  background: var(--status-danger-bg);
+  color: var(--status-danger-text);
+}
+
+.badge-soft-warning {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.badge-soft-info {
+  background: var(--status-info-bg);
+  color: var(--status-info-text);
+}
+
+// ==================== Notification Badge ====================
+.notification-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: $danger;
+  color: $white;
+  font-size: 0.65rem;
+  font-weight: $font-weight-semibold;
+  padding: 2px 6px;
+  border-radius: 999px;
+  line-height: 1;
+  min-width: 18px;
+  text-align: center;
+}
+
+// ==================== Status Dot ====================
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: spacing(2);
+
+  &.status-online {
+    background: $success;
+    animation: pulse 2s infinite;
+  }
+
+  &.status-offline {
+    background: $gray-400;
+  }
+
+  &.status-busy {
+    background: $danger;
+  }
+
+  &.status-away {
+    background: $warning;
+  }
+}
+
+// ==================== Badge Pill ====================
+.badge-pill {
+  border-radius: 999px;
+  padding: spacing(2) spacing(4);
+}
+
+// ==================== Badge with Icon ====================
+.badge-icon {
+  @include flex-center;
+  gap: spacing(1);
+
+  i {
+    font-size: $font-size-sm;
+  }
+}

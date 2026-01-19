@@ -1,0 +1,278 @@
+@use "../helpers" as *;
+
+// ==================== Base Table ====================
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 spacing(3);
+
+  thead {
+    th {
+      background: transparent;
+      border: none;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-bold;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      padding: $table-cell-padding;
+      text-align: left;
+    }
+  }
+
+  tbody {
+    tr {
+      background-color: var(--table-bg);
+      border-radius: var(--border-radius);
+      @include transition(background-color, transform, box-shadow);
+      @include shadow-sm;
+
+      &:hover {
+        background: var(--table-hover);
+        transform: scale(1.01);
+        @include shadow-md;
+      }
+
+      td {
+        border: none;
+        padding: $table-cell-padding;
+        vertical-align: middle;
+        font-size: $font-size-base;
+        color: var(--text-color);
+        background-color: transparent;
+
+        &:first-child {
+          border-top-left-radius: var(--border-radius);
+          border-bottom-left-radius: var(--border-radius);
+        }
+
+        &:last-child {
+          border-top-right-radius: var(--border-radius);
+          border-bottom-right-radius: var(--border-radius);
+        }
+      }
+    }
+  }
+}
+
+// ==================== Table Variants ====================
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background: var(--section-bg);
+  }
+}
+
+.table-bordered {
+  tbody tr {
+    border: 1px solid var(--border-color);
+  }
+}
+
+.table-hover {
+  tbody tr:hover {
+    background: var(--table-hover);
+  }
+}
+
+// ==================== Modern Table ====================
+.modern-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 spacing(3);
+
+  thead th {
+    background: transparent;
+    border: none;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-bold;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: spacing(3) spacing(4);
+  }
+
+  tbody tr {
+    background: var(--table-bg);
+    border-radius: var(--border-radius);
+    @include transition(all);
+    @include shadow-sm;
+
+    &:hover {
+      background: var(--table-hover);
+      transform: scale(1.01);
+      @include shadow-md;
+    }
+
+    td {
+      border: none;
+      padding: spacing(4);
+      vertical-align: middle;
+      font-size: $font-size-base;
+      color: var(--text-color);
+
+      &:first-child {
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+      }
+
+      &:last-child {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+      }
+    }
+  }
+
+  .weight-cell {
+    font-weight: $font-weight-bold;
+    color: var(--text-color);
+  }
+
+  .calories-cell {
+    font-weight: $font-weight-bold;
+    color: var(--primary-color);
+  }
+}
+
+// ==================== Table Responsive ====================
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  @include custom-scrollbar;
+
+  @include respond-below(md) {
+    .table {
+      min-width: 600px;
+    }
+  }
+}
+
+// ==================== Badges in Tables ====================
+.change-badge,
+.meal-type-badge,
+.badge-success,
+.badge-danger {
+  display: inline-block;
+  padding: spacing(1) spacing(3);
+  border-radius: 20px;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+}
+
+.change-badge {
+  &.change-good {
+    background: var(--status-success-bg);
+    color: var(--status-success-text);
+  }
+
+  &.change-bad {
+    background: var(--status-danger-bg);
+    color: var(--status-danger-text);
+  }
+
+  &.change-neutral {
+    background: rgba(108, 117, 125, 0.15);
+    color: $gray-600;
+  }
+}
+
+.meal-type-badge {
+  &.type-breakfast {
+    background: rgba(255, 193, 7, 0.15);
+    color: #856404;
+  }
+
+  &.type-lunch {
+    background: rgba(23, 162, 184, 0.15);
+    color: #0c5460;
+  }
+
+  &.type-dinner {
+    background: rgba(40, 167, 69, 0.15);
+    color: #155724;
+  }
+
+  &.type-snack {
+    background: rgba(220, 53, 69, 0.15);
+    color: #721c24;
+  }
+}
+
+.badge-success {
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.badge-danger {
+  background: var(--status-danger-bg);
+  color: var(--status-danger-text);
+}
+
+// ==================== Empty State ====================
+.empty-state {
+  text-align: center;
+  padding: spacing(12);
+  color: var(--text-light);
+  font-style: italic;
+  font-size: $font-size-lg;
+
+  .empty-icon {
+    font-size: $font-size-5xl;
+    margin-bottom: spacing(4);
+  }
+
+  p {
+    margin-bottom: spacing(2);
+  }
+
+  small {
+    font-size: $font-size-base;
+  }
+}
+
+// ==================== Skeleton Loading ====================
+.table-skeleton {
+  .skeleton-row {
+    height: 60px;
+    @include skeleton-loading;
+    margin-bottom: spacing(2);
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  .table,
+  .modern-table {
+    thead th {
+      text-align: right;
+    }
+
+    tbody td {
+      &:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+      }
+
+      &:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+      }
+    }
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  .table {
+    tbody tr {
+      box-shadow: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

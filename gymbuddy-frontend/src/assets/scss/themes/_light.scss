@@ -1,0 +1,139 @@
+@use "../helpers" as *;
+
+// ==================== Light Mode Theme ====================
+.light-mode,
+:root {
+  // ========== Colors ==========
+  --primary-color: #{$primary-color};
+  --primary-light: #{$primary-light};
+  --primary-dark: #{$primary-dark};
+  --secondary-color: #{$secondary-color};
+
+  // ========== Backgrounds ==========
+  --background-color: #{$gray-100};
+  --section-bg: #{$white};
+  --card-bg: #{$white};
+  --navbar-bg: #{$primary-color};
+  --sidebar-bg: #{$white};
+  --footer-bg: #{$gray-800};
+
+  // ========== Text Colors ==========
+  --text-color: #{$gray-900};
+  --text-muted: #{$gray-600};
+  --text-light: #{$gray-500};
+  --heading-color: #{$gray-900};
+
+  // ========== Borders ==========
+  --border-color: #{$gray-300};
+  --border-light: #{$gray-200};
+
+  // ========== Inputs & Forms ==========
+  --input-bg: #{$gray-100};
+  --input-border: #{$gray-300};
+  --input-focus-border: #{$primary-color};
+  --input-disabled-bg: #{$gray-200};
+
+  // ========== Buttons ==========
+  --btn-primary-bg: #{$primary-color};
+  --btn-primary-hover: #{$primary-dark};
+  --btn-secondary-bg: #{$gray-200};
+  --btn-secondary-hover: #{$gray-300};
+
+  // ========== Tables ==========
+  --table-bg: #{$white};
+  --table-hover: #{$gray-100};
+  --table-border: #{$gray-200};
+  --table-header-bg: #{$gray-100};
+
+  // ========== Cards ==========
+  --card-border: #{$gray-200};
+  --card-hover-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  // ========== Modals ==========
+  --modal-bg: #{$white};
+  --modal-backdrop: rgba(0, 0, 0, 0.5);
+
+  // ========== Toasts ==========
+  --toast-bg: #{$gray-800};
+  --toast-text: #{$white};
+
+  // ========== Scrollbar ==========
+  --scrollbar-track: transparent;
+  --scrollbar-thumb: #{$primary-color};
+  --scrollbar-thumb-hover: #{$primary-dark};
+
+  // ========== Shadows ==========
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+  // ========== Status Colors ==========
+  --status-success-bg: rgba(40, 167, 69, 0.1);
+  --status-success-text: #{$success};
+  --status-warning-bg: rgba(255, 193, 7, 0.1);
+  --status-warning-text: #856404;
+  --status-danger-bg: rgba(220, 53, 69, 0.1);
+  --status-danger-text: #{$danger};
+  --status-info-bg: rgba(23, 162, 184, 0.1);
+  --status-info-text: #{$info};
+
+  // ========== Page Specific ==========
+  --hero-overlay: rgba(0, 0, 0, 0.4);
+  --section-divider: #{$gray-200};
+
+  // ========== Chat/AI Specific ==========
+  --chat-bg: #{$white};
+  --chat-user-bubble: linear-gradient(
+    135deg,
+    #{$primary-color} 0%,
+    #1a8cff 100%
+  );
+  --chat-bot-bubble: #{$gray-100};
+  --chat-input-bg: #{$white};
+
+  // ========== Progress/Stats ==========
+  --progress-bg: #{$gray-200};
+  --progress-fill: #{$primary-color};
+  --stat-card-bg: #{$white};
+
+  // ========== Skeleton Loading ==========
+  --skeleton-base: #f0f0f0;
+  --skeleton-highlight: #e0e0e0;
+}
+
+// ==================== Light Mode Specific Adjustments ====================
+.light-mode {
+  // Text should be dark on light backgrounds
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  // Links
+  a {
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--primary-dark);
+    }
+  }
+
+  // Code blocks
+  code,
+  pre {
+    background: $gray-100;
+    color: $gray-900;
+  }
+
+  // Selection
+  ::selection {
+    background-color: var(--primary-color);
+    color: $white;
+  }
+
+  // Focus visible
+  :focus-visible {
+    outline-color: var(--primary-color);
+  }
+}

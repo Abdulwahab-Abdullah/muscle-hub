@@ -1,0 +1,557 @@
+@use "../helpers" as *;
+// ==================== Homepage Wrapper ====================
+section {
+  padding: spacing(14) 0;
+}
+.home-page {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: $font-family-base;
+  overflow-x: hidden;
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    @include transition(color);
+    &:hover {
+      color: $primary-dark;
+    }
+  }
+} // ==================== Sliders ====================
+.sliders {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  transition: var(--transition-duration-base);
+
+  .slide {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-text {
+      position: absolute;
+      bottom: 20%;
+      left: 10%;
+      color: $white;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.25);
+
+      h1 {
+        font-size: $font-size-4xl;
+      }
+
+      p {
+        font-size: $font-size-lg;
+        margin-top: spacing(2);
+      }
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+  .slide-text {
+    padding: 12px 8px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    h1 {
+      font-size: $font-size-3xl;
+      color: var(--primary-color);
+    }
+  }
+}
+
+/* Vue Fade Transition */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.2s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}
+// ==================== Main Headings ====================
+.main-heading {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  margin: spacing(8) auto spacing(12);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(3);
+  i {
+    font-size: $font-size-2xl;
+  }
+  @include respond-to(md) {
+    font-size: $font-size-4xl;
+  }
+} // ==================== Services Cards ====================
+.service-card {
+  border-radius: spacing(2);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  @include transition(all);
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  .card-body {
+    padding: spacing(4);
+    h5 {
+      font-weight: $font-weight-semibold;
+      margin-bottom: spacing(2);
+    }
+    p {
+      font-size: $font-size-base;
+      margin-bottom: spacing(3);
+    }
+    button {
+      @include transition(all);
+      &:hover {
+        background-color: $primary-dark;
+      }
+    }
+  }
+} // ==================== Intro Section ====================
+.intro {
+  img {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    margin-bottom: spacing(6);
+
+    span {
+      color: var(--primary-color);
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: spacing(3); // ترجّع 0.75rem
+      margin-bottom: spacing(3);
+
+      i {
+        flex-shrink: 0; // 👈 يمنع الأيقونة تتقلص
+        color: var(--primary-color);
+        font-size: $font-size-xl;
+        margin-top: 6px;
+        line-height: 1;
+      }
+
+      span {
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+        color: var(--text-color);
+      }
+    }
+  }
+}
+
+// ==================== How It Works ====================
+.work-box {
+  background: var(--card-bg); // يستخدم الخلفية حسب الوضع
+  color: var(--text-color); // يستخدم لون النص حسب الوضع
+  padding: map-get($spacing, 6);
+  border-radius: map-get($spacing, 2);
+  text-align: center;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.15),
+    0 10px 25px rgba(0, 0, 0, 0.2); // ظلال متعددة لإحساس العمق
+  @include transition(all);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  i {
+    font-size: $font-size-3xl;
+    color: var(--primary-color); // لون أيقونة حسب الوضع
+    margin-bottom: map-get($spacing, 2);
+    display: block;
+  }
+
+  h5 {
+    font-weight: $font-weight-semibold;
+    margin-bottom: map-get($spacing, 2);
+  }
+
+  p {
+    font-size: $font-size-base;
+    flex-grow: 1;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 5px 15px rgba(0, 0, 0, 0.2),
+      0 10px 30px rgba(0, 0, 0, 0.25),
+      0 15px 45px rgba(0, 0, 0, 0.3); // زيادة الظل عند المرور بالماوس
+  }
+}
+
+// ==================== Preview Cards ====================
+.preview-card {
+  position: relative;
+  border-radius: map-get($spacing, 2);
+  overflow: hidden;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.15); // ظل أساسي
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  min-height: 350px; // طول ثابت
+  background: #000; // احتياطي لو الصورة لم تحمل
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .text {
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    padding: map-get($spacing, 4);
+    background: rgba(0, 0, 0, 0.35);
+    border-top-left-radius: map-get($spacing, 2);
+    border-top-right-radius: map-get($spacing, 2);
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: $font-size-3xl;
+      color: var(--primary-color);
+      margin-right: map-get($spacing, 2);
+      vertical-align: middle;
+    }
+
+    h5 {
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-lg;
+      display: flex;
+      align-items: center;
+      margin-bottom: map-get($spacing, 1);
+      color: $primary-color;
+    }
+
+    p {
+      font-size: $font-size-base;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px); // يرفع البطاقة فقط
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.25),
+      0 24px 60px rgba(0, 0, 0, 0.35); // ظل أقوى للعمق
+  }
+}
+
+// ==================== Testimonials ====================
+.testimonials {
+  .indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 spacing(2);
+    background-color: var(--text-muted);
+    cursor: pointer;
+    @include transition(background-color);
+    &.active {
+      background-color: var(--primary-color);
+    }
+  }
+  .name {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-xl;
+    color: $primary-color;
+  }
+  .role {
+    color: var(--text-muted);
+    font-size: $font-size-base;
+    margin-bottom: spacing(2);
+  }
+  .content {
+    font-size: $font-size-base;
+    line-height: $line-height-relaxed;
+  }
+} // ==================== Plan Cards ====================
+.plan-card {
+  background: var(--card-bg); // يعتمد على الوضع (فاتح/داكن)
+  color: var(--text-color);
+  padding: map-get($spacing, 6);
+  border-radius: map-get($spacing, 2);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.05); // ظلال متعددة لإحساس العمق
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @include transition(all);
+  min-height: 350px;
+
+  .badge {
+    position: absolute;
+    top: map-get($spacing, 3);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: $white;
+    padding: map-get($spacing, 1) map-get($spacing, 3);
+    border-radius: map-get($spacing, 1);
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+  }
+
+  h3 {
+    margin: map-get($spacing, 4) 0;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-xl;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: map-get($spacing, 4);
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: map-get($spacing, 2);
+
+      i {
+        color: var(--primary-color);
+        margin-right: map-get($spacing, 2);
+      }
+
+      span {
+        color: var(--text-color);
+        font-size: $font-size-base;
+      }
+    }
+  }
+
+  button {
+    margin-top: auto;
+    @include transition(all);
+    background: var(--primary-color);
+    color: $white;
+    padding: map-get($spacing, 2) map-get($spacing, 4);
+    border: none;
+    border-radius: map-get($spacing, 1);
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.2),
+      0 12px 40px rgba(0, 0, 0, 0.25);
+  }
+}
+// ==================== FAQ Accordion ====================
+.faq {
+  .accordion-button {
+    background: var(--card-bg); // يعتمد على الوضع الداكن/الفاتح
+    color: var(--text-color);
+    font-weight: $font-weight-semibold;
+    border: 1px solid var(--border-color);
+    border-radius: map-get($spacing, 1);
+    @include transition(all);
+    padding: map-get($spacing, 3) map-get($spacing, 4);
+    box-shadow: var(--shadow-sm);
+
+    &:not(.collapsed) {
+      background: var(--primary-color);
+      color: $white;
+      box-shadow: var(--shadow-md);
+    }
+
+    &:hover {
+      background: var(--primary-light);
+    }
+  }
+
+  .accordion-body {
+    font-size: $font-size-base;
+    color: var(--text-muted);
+    padding: map-get($spacing, 3) map-get($spacing, 4);
+    border-top: 1px solid var(--border-light);
+    line-height: 1.6;
+  }
+}
+// ==================== Blog Section ====================
+.blog {
+  .card {
+    background: var(--card-bg); // يعتمد على الوضع الداكن/الفاتح
+    color: var(--text-color);
+    border-radius: map-get($spacing, 2);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    @include transition(all);
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg); // ظل أقوى عند المرور
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 200px; // للتحكم في ارتفاع الصورة
+    }
+
+    .card-body {
+      padding: map-get($spacing, 4);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      h5 {
+        font-weight: $font-weight-semibold;
+        margin-bottom: map-get($spacing, 2);
+      }
+
+      p {
+        font-size: $font-size-base;
+        flex-grow: 1; // يملأ المساحة المتاحة
+        margin-bottom: map-get($spacing, 2);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        padding: map-get($spacing, 2) map-get($spacing, 3);
+        border-radius: map-get($spacing, 1);
+        text-align: center;
+        @include transition(all);
+        display: inline-block;
+
+        &:hover {
+          background-color: var(--btn-primary-hover);
+          color: $white;
+        }
+      }
+    }
+  }
+}
+// ==================== CTA Section ====================
+.cta-section {
+  text-align: center;
+  padding: map-get($spacing, 12) 0;
+  background: $primary-color;
+  color: $white;
+
+  h2 {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    margin-bottom: map-get($spacing, 4);
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: $font-size-lg;
+    margin-bottom: map-get($spacing, 6);
+    line-height: 1.5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    padding: map-get($spacing, 2) map-get($spacing, 5);
+    border-radius: map-get($spacing, 1);
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-base;
+    cursor: pointer;
+    border: none;
+    background-color: $primary-dark;
+
+    @include transition(all);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: $primary-color;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  @include respond-below(md) {
+    h2 {
+      font-size: $font-size-3xl;
+    }
+    p {
+      font-size: $font-size-base;
+    }
+    button {
+      width: 100%;
+      padding: map-get($spacing, 3);
+    }
+  }
+}

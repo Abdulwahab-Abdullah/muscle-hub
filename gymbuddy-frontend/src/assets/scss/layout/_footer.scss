@@ -1,0 +1,228 @@
+@use "../helpers" as *;
+
+// ==================== Main Footer ====================
+footer {
+  h5 {
+    color: $white;
+  }
+  background-color: var(--footer-bg); // يدعم Light/Dark
+  color: var(--text-color);
+  padding: map-get($spacing, 12) 0 map-get($spacing, 6);
+  @include transition(background-color, color);
+
+  .container {
+    max-width: 1200px;
+  }
+
+  // Footer Sections
+  .row {
+    margin-bottom: map-get($spacing, 8);
+  }
+
+  // Logo & Description
+  h3 {
+    font-weight: $font-weight-bold;
+    font-size: $font-size-2xl;
+    margin-bottom: map-get($spacing, 4);
+    color: $white;
+
+    i {
+      transform: rotate(-45deg);
+      color: var(--primary-color);
+      @include transition(transform, color);
+
+      &:hover {
+        transform: rotate(-45deg) scale(1.2);
+      }
+    }
+  }
+
+  p {
+    color: rgba(var(--text-color-rgb), 0.7); // متغير RGB لتغيير اللون بسهولة
+    line-height: $line-height-relaxed;
+    margin-bottom: map-get($spacing, 4);
+  }
+
+  // Social Media Links
+  .social-links {
+    display: flex;
+    justify-content: center; // أو flex-start
+    gap: map-get($spacing, 4);
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(var(--text-color-rgb), 0.1);
+      color: rgba(var(--text-color-rgb), 0.7); // اللون الأساسي
+      transition:
+        background-color 0.3s,
+        color 0.3s,
+        transform 0.3s;
+
+      i {
+        font-size: $font-size-lg;
+      }
+
+      &:hover {
+        transform: translateY(-3px);
+        color: $white; // أيقونة تصبح بيضاء عند Hover
+
+        &.facebook {
+          background: #1877f2;
+        }
+        &.instagram {
+          background: linear-gradient(
+            45deg,
+            #f09433,
+            #e6683c,
+            #dc2743,
+            #cc2366,
+            #bc1888
+          );
+        }
+        &.twitter {
+          background: #1da1f2;
+        }
+        &.linkedin {
+          background: #0a66c2;
+        }
+      }
+    }
+  }
+
+  // Contact Info
+  .contact-info {
+    h5 {
+      font-weight: $font-weight-semibold;
+      font-size: $font-size-lg;
+      margin-bottom: map-get($spacing, 4);
+      color: var(--text-color);
+    }
+
+    .info-item {
+      @include flex-center;
+      gap: map-get($spacing, 3);
+      margin-bottom: map-get($spacing, 3);
+      align-items: flex-start;
+
+      i {
+        font-size: $font-size-lg;
+        color: var(--primary-color);
+        margin-top: map-get($spacing, 1);
+        min-width: 20px;
+      }
+
+      p {
+        margin: 0;
+        color: rgba(var(--text-color-rgb), 0.7);
+      }
+    }
+  }
+
+  // Divider
+  hr {
+    border-color: rgba(var(--text-color-rgb), 0.2);
+    margin: map-get($spacing, 8) 0;
+  }
+
+  // Copyright
+  .copyright {
+    text-align: center;
+    color: rgba(var(--text-color-rgb), 0.6);
+    font-size: $font-size-sm;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      @include transition(color);
+
+      &:hover {
+        color: var(--btn-primary-hover);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+// ==================== Dark Mode Adjustments ====================
+.dark-mode footer {
+  background-color: #0f0f0f;
+
+  p,
+  .social-links a,
+  .quick-links a,
+  .contact-info p {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .quick-links a:hover {
+    color: #5ac8ff;
+  }
+}
+
+.dark-mode .social-links a {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+
+  &:hover {
+    color: $white;
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  footer {
+    padding: spacing(8) 0 spacing(4);
+    text-align: center;
+
+    .row {
+      margin-bottom: spacing(6);
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .quick-links,
+    .contact-info {
+      margin-top: spacing(6);
+
+      ul {
+        text-align: center;
+      }
+    }
+
+    .contact-info .info-item {
+      justify-content: center;
+    }
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  footer {
+    .quick-links a:hover {
+      padding-left: 0;
+      padding-right: spacing(2);
+    }
+
+    .contact-info .info-item {
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  footer {
+    @include print-hide;
+  }
+}

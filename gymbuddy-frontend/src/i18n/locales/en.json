@@ -1,0 +1,707 @@
+{
+  "logo": {
+    "appName": "Muscle Hub",
+    "navbar": "Muscle <span> Hub</span>"
+  },
+  "about": {
+    "title": "About Muscle Hub",
+    "subtitle": "Your ultimate partner in fitness — personalized workouts, nutrition, and progress tracking.",
+    "featuresTitle": "Key Features",
+    "ctaTitle": "Ready to Transform Your Fitness Journey?",
+    "ctaText": "Join Muscle Hub today and get personalized workout & nutrition plans tailored just for you!",
+    "ctaButton": "Get Started Now",
+
+    "features": [
+      {
+        "title": "Custom Workouts",
+        "desc": "Personalized training plans based on your goals and level."
+      },
+      {
+        "title": "Nutrition Plans",
+        "desc": "Smart calorie-based meal plans for muscle gain or fat loss."
+      },
+      {
+        "title": "Progress Tracking",
+        "desc": "Monitor your strength, weight, and performance easily."
+      },
+      {
+        "title": "AI Optimization",
+        "desc": "Get AI-driven recommendations for continuous improvement."
+      },
+      {
+        "title": "Safe & Secure",
+        "desc": "Your data is fully protected and private."
+      }
+    ]
+  },
+
+  "aiChat": {
+    "title": "Gym AI Assistant",
+    "status": "Online - Ready to help",
+    "clearChat": "Clear Chat",
+    "clearConfirmTitle": "Clear Chat History?",
+    "clearConfirmText": "This will delete all your conversation history",
+    "clearConfirmYes": "Yes, clear it",
+    "clearConfirmCancel": "Cancel",
+
+    "welcomeTitle": "Welcome to Your AI Fitness Coach!",
+    "welcomeSubtitle": "Ask me anything about:",
+    "inputPlaceholder": "Ask me anything about fitness, nutrition, or workouts...",
+    "inputHint": "Press Enter to send, Shift+Enter for new line",
+
+    "suggestions": {
+      "workoutPlan": "Create a workout plan for me",
+      "muscleGain": "What should I eat for muscle gain?",
+      "weightLoss": "How to lose weight safely?",
+      "beginners": "Best exercises for beginners"
+    },
+
+    "errors": {
+      "sendFailed": "Failed to send message",
+      "generic": "Something went wrong"
+    },
+
+    "success": {
+      "cleared": "Chat Cleared",
+      "clearedText": "Your conversation history has been cleared"
+    }
+  },
+
+  "authPage": {
+    "forgotPassword": "Forgot Password?"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password?",
+    "subtitle": "Don't worry, we can help",
+    "notAvailable": "Feature Not Available",
+    "description": "Password recovery is not enabled in the current version:",
+    "reason1": "Requires email server setup",
+    "reason2": "Needs advanced authentication system",
+    "contactTitle": "Need Help?",
+    "contactDescription": "Contact support to reset your password",
+    "contactButton": "Contact Support",
+    "backToLogin": "Back to Login"
+  },
+
+  "authLogin": {
+    "title": "Welcome Back to Muscle Hub",
+    "subtitle": "Enter your credentials to access your personalized fitness dashboard",
+    "email": "Email address",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "rememberMe": "Remember me",
+    "loginButton": "Login",
+    "forgotPassword": "Forgot your password?",
+    "successTitle": "Login Successful",
+    "failedTitle": "Login Failed",
+    "genericError": "Something went wrong"
+  },
+  "authRegister": {
+    "title": "Create an Account",
+    "name": "Full Name",
+    "namePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "registerButton": "Register",
+    "errors": {
+      "nameTooShort": "Name must be at least 3 characters long.",
+      "passwordTooShort": "Password must be at least 6 characters long.",
+      "passwordsDoNotMatch": "Passwords do not match."
+    },
+    "successTitle": "Registration Successful",
+    "failedTitle": "Registration Failed",
+    "genericError": "Something went wrong"
+  },
+  "calories": {
+    "title": "Calories Calculator",
+    "subtitle": "Calculate your daily calorie needs 🍽️",
+
+    "form": {
+      "age": "Age",
+      "agePlaceholder": "Enter your age",
+      "weight": "Weight (kg)",
+      "weightPlaceholder": "Enter your weight in kg",
+      "height": "Height (cm)",
+      "heightPlaceholder": "Enter your height in cm",
+      "activity": "Activity Level",
+      "activityPlaceholder": "Select activity level",
+      "targetWeight": "Target Weight (kg)",
+      "targetWeightPlaceholder": "Enter your target weight in kg",
+      "sex": "Sex",
+      "male": "Male",
+      "female": "Female",
+      "goal": "Goal",
+      "loss": "Weight Loss",
+      "maintain": "Maintain",
+      "gain": "Muscle Gain"
+    },
+
+    "buttons": {
+      "calculate": "Calculate",
+      "processing": "Processing...",
+      "edit": "Edit"
+    },
+
+    "result": {
+      "title": "Your Daily Calorie Needs"
+    },
+
+    "alerts": {
+      "required": "Please fill in all required fields",
+      "successTitle": "Success!",
+      "successText": "Your nutrition plan has been saved",
+      "errorTitle": "Error",
+      "errorText": "An error occurred while saving your data. Please try again."
+    }
+  },
+
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Have questions? We'd love to hear from you. Fill out the form below and we'll respond shortly.",
+
+    "form": {
+      "name": "Your Name",
+      "email": "Email Address",
+      "message": "Message",
+      "send": "Send Message"
+    },
+
+    "infoTitle": "Our Contact Info",
+
+    "alerts": {
+      "tooLongTitle": "Message Too Long",
+      "tooLongText": "Please limit your message to 2000 words.",
+      "tooShortTitle": "Message Too Short",
+      "tooShortText": "Please enter at least 2 words in your message.",
+      "successTitle": "Message Sent",
+      "successText": "Thank you for contacting us! We'll get back to you shortly.",
+      "errorTitle": "Submission Failed",
+      "errorText": "There was an error sending your message. Please try again later."
+    }
+  },
+
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Overview of your daily progress 📊",
+
+    "stats": {
+      "calories": "Calories",
+      "totalCalories": "Total calories",
+      "currentWeight": "Current Weight",
+      "latestProgress": "Latest progress",
+      "targetWeight": "Target Weight",
+      "remaining": "kg to go",
+      "progress": "Progress"
+    },
+
+    "chart": {
+      "title": "Weight Progress Chart",
+      "weightLabel": "Weight (kg)"
+    },
+
+    "meals": {
+      "title": "Today's Meals",
+      "type": "Type",
+      "name": "Meal Name",
+      "calories": "Calories",
+      "empty": "No meals logged today yet 🍽️"
+    }
+  },
+
+  "exercise": {
+    "title": "Exercise Library",
+    "subtitle": "Choose exercises and add them to your workout plan 💪",
+    "add": "➕ Add",
+    "remove": "❌ Remove",
+    "toast": {
+      "fetchError": "Failed to fetch exercises ❌",
+      "invalid": "Invalid exercise ❌",
+      "added": "added ✅",
+      "removed": "removed ❌"
+    }
+  },
+  "workouts": {
+    "title": "My Workouts",
+    "subtitle": "Organize your exercises by day and reps 💪",
+    "totalExercises": "Total Exercises",
+    "editPlan": "Edit Plan",
+    "planNamePlaceholder": "Plan name e.g. Full Body",
+
+    "table": {
+      "day": "Day",
+      "exercise": "Exercise",
+      "sets": "Sets",
+      "reps": "Reps",
+      "weight": "Weight (kg)"
+    },
+
+    "actions": {
+      "remove": "Remove",
+      "save": "Save Plan",
+      "update": "Update Plan",
+      "cancel": "Cancel",
+      "clear": "Clear All"
+    },
+
+    "messages": {
+      "noExercises": "No exercises selected yet. Go to Exercise Library to add some!",
+      "confirmClear": "Are you sure you want to clear all exercises?",
+      "planCleared": "Plan cleared ✅",
+      "planLoaded": "Plan loaded ✅",
+      "planSaved": "Plan saved 💪",
+      "planUpdated": "Plan updated 💪",
+      "duplicateExercise": "Duplicate exercise in same day ❌",
+      "saveFailed": "Failed to save plan ❌",
+      "loadFailed": "Failed to load exercises ❌"
+    },
+
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  },
+
+  "nutrition": {
+    "title": "My Nutrition Plan",
+    "subtitle": "Track your daily nutrition 🍎",
+
+    "macros": {
+      "calories": "Calories",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
+      "status": {
+        "exceeded": "Exceeded!",
+        "almost": "Almost there",
+        "close": "Getting close",
+        "onTrack": "On track"
+      }
+    },
+
+    "meals": {
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "snacks": "Snacks",
+      "addMeal": "Add Meal",
+      "empty": "No meals added yet"
+    },
+
+    "actions": {
+      "save": "Save Plan",
+      "update": "Update Plan",
+      "reset": "Reset Today's Meals"
+    },
+
+    "messages": {
+      "mealAdded": "added ✅",
+      "enterMealName": "Please enter meal name ❌",
+      "saveSuccess": "Plan saved successfully! 💪",
+      "updateSuccess": "Plan updated successfully! 💪",
+      "saveFailed": "Failed to save plan ❌",
+      "loadFailed": "Failed to load data ❌",
+      "clearToday": "All meals for today cleared! 🗑️"
+    }
+  },
+  "progress": {
+    "title": "My Progress Journey",
+    "subtitle": "Track your transformation 📈",
+    "stats": {
+      "startWeight": "Start Weight",
+      "currentWeight": "Current Weight",
+      "targetWeight": "Target Weight",
+      "progress": "Progress",
+      "toGo": "to go",
+      "ofGoal": "of your goal"
+    },
+    "status": {
+      "excellent": "Excellent Progress!",
+      "onTrack": "You're On Track",
+      "attention": "Needs Attention",
+      "excellentMsg": "You're crushing it! Keep going strong 💪",
+      "onTrackMsg": "Steady progress. Stay consistent!",
+      "attentionMsg": "Time to refocus. You got this!"
+    },
+    "estimates": {
+      "daysPassed": "Days Passed",
+      "recentPace": "Recent Pace",
+      "timeLeft": "Est. Time Left",
+      "bmi": "Current BMI"
+    },
+    "form": {
+      "title": "Log Today's Progress",
+      "date": "Date",
+      "weight": "Weight (kg) *",
+      "muscle": "Muscle Mass",
+      "calories": "Calories",
+      "workout": "Workout Done?",
+      "submit": "Log Progress",
+      "saving": "Saving..."
+    },
+    "history": {
+      "title": "Progress History",
+      "empty": "No progress logged yet",
+      "startToday": "Start tracking your journey today!"
+    }
+  },
+
+  "home": {
+    "slides": [
+      {
+        "title": "Welcome to Muscle Hub",
+        "subtitle": "Build your strength"
+      },
+      {
+        "title": "Train Hard",
+        "subtitle": "Stay Fit & Healthy"
+      },
+      {
+        "title": "Push Your Limits",
+        "subtitle": "Achieve Your Goals"
+      }
+    ],
+
+    "services": {
+      "heading": "Our Services",
+      "cards": [
+        {
+          "title": "Custom Workout Plans",
+          "text": "Generate a personalized workout plan based on your goal and level.",
+          "button": "Start Now!"
+        },
+        {
+          "title": "Nutrition Plans",
+          "text": "Get a smart nutrition plan based on your calories and body goals.",
+          "button": "Generate Plan"
+        },
+        {
+          "title": "Track Your Progress",
+          "text": "Monitor your weight, strength, and body transformation over time.",
+          "button": "View Dashboard"
+        }
+      ]
+    },
+
+    "intro": {
+      "heading": "Why <span>Muscle Hub</span> Is Your Ultimate Fitness Partner",
+      "features": [
+        {
+          "title": "Elite-Level Personalization",
+          "text": "Hyper-personalized workout and nutrition plans engineered for maximum results."
+        },
+        {
+          "title": "AI-Driven Performance Optimization",
+          "text": "Intelligent system that evolves with your progress and adapts to your limits."
+        },
+        {
+          "title": "Advanced Progress Intelligence",
+          "text": "Track strength, weight, calories, and body metrics with precision."
+        },
+        {
+          "title": "Relentless Motivation System",
+          "text": "Smart reminders, streaks, and challenges that push you beyond your limits."
+        },
+        {
+          "title": "Built for Serious Athletes",
+          "text": "From first rep to peak performance — Muscle Hub scales with your ambition."
+        }
+      ]
+    },
+
+    "howItWorks": {
+      "heading": "How Muscle Hub Works",
+      "steps": [
+        {
+          "title": "Create Account",
+          "text": "Sign up and build your personal fitness profile."
+        },
+        {
+          "title": "Set Your Goals",
+          "text": "Choose your target: muscle gain, fat loss, or strength."
+        },
+        {
+          "title": "Get Your Plan",
+          "text": "Receive smart workout & nutrition plans instantly."
+        },
+        {
+          "title": "Track Progress",
+          "text": "Monitor your transformation with real data & analytics."
+        }
+      ]
+    },
+
+    "dashboardPreview": {
+      "heading": "Inside Muscle Hub",
+      "cards": [
+        {
+          "title": "Workout Builder",
+          "text": "Create dynamic training plans based on goals & level."
+        },
+        {
+          "title": "Nutrition Planner",
+          "text": "Smart calorie & macro-based nutrition system."
+        },
+        {
+          "title": "Progress Tracker",
+          "text": "Track weight, strength, calories, and performance."
+        },
+        {
+          "title": "User Profile",
+          "text": "Personal data, goals, history, and achievements."
+        }
+      ]
+    },
+
+    "testimonials": {
+      "heading": "Testimonials",
+      "cards": [
+        {
+          "name": "Ahmed Al-Harbi",
+          "role": "Fitness Enthusiast - Saudi Arabia",
+          "content": "Muscle Hub completely changed the way I train! The workout plans are smart, easy to follow, and perfectly match my goals. I've seen real progress in just a few weeks. Highly recommended for anyone serious about fitness!"
+        },
+        {
+          "name": "Khaled Nasser",
+          "role": "Beginner to Advanced Trainee - Saudi Arabia",
+          "content": "I started with zero experience, and Muscle Hub guided me step by step. The nutrition plan helped me stay consistent, and the workout system is super organized. This platform truly feels like a personal digital coach!"
+        },
+        {
+          "name": "Sarah Mitchell",
+          "role": "Online Coaching Client - UK",
+          "content": "What I love most about Muscle Hub is how everything is personalized. From nutrition plans to workout routines, everything feels built just for me. The dashboard makes tracking progress simple and motivating!"
+        }
+      ]
+    },
+
+    "choosePlan": {
+      "heading": "Choose Your Free Plan",
+      "text": "Start your fitness journey with Muscle Hub completely free!",
+      "plan": {
+        "badge": "Free Forever",
+        "title": "Muscle Hub Free Plan",
+        "features": [
+          "Full library of exercises for all levels",
+          "Smart nutrition plans based on your goals",
+          "Track your progress: weight, strength, and performance",
+          "Weekly challenges to stay motivated"
+        ],
+        "button": "Start Free Now"
+      }
+    },
+
+    "faq": {
+      "heading": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "How do I start the free plan?",
+          "answer": "Once you register, you will get instant access to our free plan and can start tracking your workouts and nutrition immediately."
+        },
+        {
+          "question": "Do I need gym equipment?",
+          "answer": "No, you can start with home workouts that require no equipment, or choose gym exercises if you have access to a gym."
+        },
+        {
+          "question": "Is there a personalized nutrition plan?",
+          "answer": "Yes, our system suggests a personalized nutrition plan based on your weight, goal, and daily activity level."
+        },
+        {
+          "question": "Is my data secure?",
+          "answer": "We prioritize your privacy. Your data is stored securely and is never shared with third parties."
+        }
+      ]
+    },
+
+    "blog": {
+      "heading": "Latest Articles",
+      "button": "Read More",
+      "posts": [
+        {
+          "src": "homePage3.jpg",
+          "alt": "blog1",
+          "title": "5 Tips to Improve Your Strength Training",
+          "excerpt": "Learn how to maximize your workouts and achieve faster results with these simple tips.",
+          "link": "https://www.healthline.com/fitness"
+        },
+        {
+          "src": "cardNutrition.jpg",
+          "alt": "blog2",
+          "title": "Nutrition Hacks for Muscle Growth",
+          "excerpt": "Discover the key foods and meal timing strategies that boost muscle gain.",
+          "link": "https://www.healthline.com/nutrition"
+        },
+        {
+          "src": "cardProgress.jpg",
+          "alt": "blog3",
+          "title": "How to Track Your Fitness Progress Effectively",
+          "excerpt": "Monitoring your progress is crucial. Here's how to track strength, weight, and body composition.",
+          "link": "https://www.menshealth.com/fitness"
+        }
+      ]
+    },
+
+    "cta": {
+      "heading": "Ready to Transform Your Fitness Journey?",
+      "text": "Join Muscle Hub today and get personalized workout & nutrition plans tailored just for you!",
+      "button": "Get Started Now"
+    }
+  },
+  "footer": {
+    "description": "Your ultimate fitness partner for smart workout and nutrition plans.",
+    "followUs": "Follow Us",
+    "infoTitle": "Info",
+    "ownerName": "Abdulwahab Abdullah",
+    "phone": "+966506481744",
+    "email": "abdulwahabyahya1@gmail.com",
+    "copyright": "© 2026 Muscle Hub. All rights reserved."
+  },
+
+  "navbar": {
+    "home": "Home",
+    "loginRegister": "Login / Register",
+    "aboutFeatures": "About / Features",
+    "contactUs": "Contact Us",
+    "darkMode": "Toggle Dark/Light"
+  },
+
+  "sidebar": {
+    "mainMenu": "Main Menu",
+    "dashboard": "Dashboard",
+    "exercise": "Exercise",
+    "myWorkouts": "My Workouts",
+    "nutrition": "Nutrition",
+    "calories": "Calories",
+    "progress": "Progress",
+    "aiAssistant": "AI Assistant",
+    "account": "Account",
+    "myProfile": "My Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "hideSidebar": "Hide Sidebar",
+    "showSidebar": "Show Sidebar",
+    "loggedOutSuccess": "You have been successfully logged out.",
+    "logoutFailed": "Something went wrong. Please try again."
+  },
+
+  "profileBar": {
+    "pageTitle": "Dashboard"
+  },
+
+  "toast": {
+    "close": "Close"
+  },
+  "profile": {
+    "loading": "Loading profile...",
+    "editProfile": "Edit Profile",
+    "joined": "Joined",
+    "tracked": "tracked",
+    "days": "days",
+    "day": "day",
+    "stats": {
+      "mealsToday": "Meals Today",
+      "progressEntries": "Progress Entries",
+      "caloriesToday": "Calories Today",
+      "weightChanged": "Weight Changed"
+    },
+    "goals": {
+      "title": "Current Goals",
+      "weightGoal": "Weight Goal",
+      "dailyCalories": "Daily Calories",
+      "remaining": "remaining",
+      "eta": "ETA",
+      "activityLevel": "Activity Level",
+      "goalType": "Goal Type",
+      "weeklyProgress": "Weekly Progress"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "locked": "Locked",
+      "unlocked": "Unlocked"
+    },
+    "activity": {
+      "title": "Recent Activity",
+      "empty": "No recent activity yet. Start tracking your progress! 📊",
+      "logged": "Logged",
+      "progressUpdate": "Progress Update",
+      "achievementUnlocked": "Achievement Unlocked!"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account and preferences ⚙️",
+    "loading": "Loading settings...",
+    "sections": {
+      "profile": "Profile Information",
+      "goals": "Goals & Targets",
+      "notifications": "Notifications",
+      "security": "Security",
+      "danger": "Danger Zone"
+    },
+    "labels": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "age": "Age",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "gender": "Gender",
+      "selectGender": "Select Gender",
+      "male": "Male",
+      "female": "Female",
+      "goalType": "Goal Type",
+      "selectGoal": "Select a goal",
+      "startWeight": "Start Weight (kg)",
+      "targetWeight": "Target Weight (kg)",
+      "dailyCalories": "Daily Calorie Goal",
+      "activityLevel": "Activity Level",
+      "selectLevel": "Select level",
+      "startDate": "Start Date",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password"
+    },
+    "actions": {
+      "saveProfile": "Save Profile",
+      "updateGoals": "Update Goals",
+      "savePreferences": "Save Preferences",
+      "changePassword": "Change Password",
+      "clearMeals": "Clear Today's Meals",
+      "logout": "Logout",
+      "uploadPhoto": "Upload Photo",
+      "changePhoto": "Change Photo",
+      "removePhoto": "Remove",
+      "uploading": "Uploading...",
+      "saving": "Saving...",
+      "updating": "Updating...",
+      "removing": "Removing..."
+    },
+    "notifications": {
+      "mealReminders": "Meal Reminders",
+      "mealRemindersDesc": "Get notified when it's time to log your meals",
+      "progressUpdates": "Progress Updates",
+      "progressUpdatesDesc": "Weekly summary of your progress and achievements",
+      "goalAchievements": "Goal Achievements",
+      "goalAchievementsDesc": "Celebrate when you reach your milestones"
+    },
+    "danger": {
+      "clearMealsTitle": "Clear Today's Meals",
+      "clearMealsDesc": "Remove all meals logged for today",
+      "logoutTitle": "Logout",
+      "logoutDesc": "Sign out from your current account"
+    },
+    "placeholders": {
+      "nameChangeNote": "Name cannot be changed here",
+      "emailChangeNote": "Email cannot be changed",
+      "startWeightNote": "Your weight when you started the journey",
+      "startDateNote": "When did you start this journey?"
+    }
+  }
+}

@@ -1,0 +1,349 @@
+@use "../helpers" as *;
+
+// ==================== Homepage Navbar ====================
+.homepage-navbar {
+  background-color: var(--background-color);
+  box-shadow: var(--shadow-md);
+  @include transition(background-color, box-shadow);
+  max-height: 80px;
+
+  .container {
+    @include flex-between;
+    padding: spacing(4) spacing(5);
+  }
+
+  // Logo
+  .navbar-brand {
+    @include flex-center;
+    gap: spacing(2);
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      @include transition(transform);
+
+      &:hover {
+        transform: rotate(-15deg) scale(1.1);
+      }
+    }
+
+    .logo-text {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: var(--text-color);
+      @include transition(color);
+
+      span {
+        color: $primary-color;
+      }
+
+      @include respond-below(md) {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  // Toggler
+  .navbar-toggler {
+    border: none;
+    box-shadow: none;
+    background: $primary-color;
+    padding: spacing(2) spacing(3);
+    border-radius: var(--border-radius-sm);
+
+    &:focus {
+      box-shadow: none;
+      outline: none;
+    }
+
+    &[aria-expanded="true"] {
+      background: $primary-dark;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(1) brightness(2);
+    }
+  }
+
+  // Nav Links
+  .navbar-collapse {
+    @include respond-below(lg) {
+      margin-top: spacing(4);
+    }
+  }
+
+  .navbar-nav {
+    @include flex-center;
+    gap: spacing(4);
+
+    @include respond-below(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  .nav-item {
+    position: relative;
+  }
+
+  .nav-link {
+    margin: 0;
+    padding: 0;
+    @include transition(color);
+    position: relative;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-lg;
+    color: var(--text-color);
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: var(--text-color);
+      visibility: hidden;
+      transform: scaleX(0);
+      @include transition(transform, visibility);
+    }
+
+    &:hover,
+    &.active {
+      color: var(--primary-color);
+
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+        background-color: var(--primary-color);
+      }
+    }
+
+    @include respond-below(lg) {
+      padding: spacing(2) 0;
+      font-size: $font-size-base;
+    }
+  }
+
+  // Dark Mode Toggle in Navbar
+  .dark-mode-toggle {
+    margin-left: spacing(3);
+
+    @include respond-below(lg) {
+      margin-left: 0;
+      margin-top: spacing(3);
+    }
+  }
+}
+
+// ==================== Logged In Navbar (with Sidebar) ====================
+.navbar-logged-in {
+  background-color: var(--navbar-bg);
+  @include shadow-md;
+  @include transition(background-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: z(sticky);
+  height: $navbar-height;
+
+  .container-fluid {
+    @include flex-between;
+    height: 100%;
+    padding: 0 spacing(5);
+  }
+
+  .navbar-brand {
+    @include flex-center;
+    gap: spacing(2);
+
+    .logo {
+      width: 45px;
+      height: 45px;
+    }
+
+    .logo-text {
+      font-size: $font-size-xl;
+      font-weight: $font-weight-bold;
+      color: var(--text-color);
+
+      span {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .navbar-actions {
+    @include flex-center;
+    gap: spacing(4);
+  }
+}
+
+// ==================== Profile Bar (Secondary Navbar) ====================
+.profile-bar {
+  @include flex-between;
+  padding: 0 spacing(6);
+  height: $profile-bar-height;
+  background-color: var(--card-bg);
+  border-bottom: 2px solid var(--primary-color);
+  position: sticky;
+  top: 0;
+  z-index: z(sticky) - 10;
+  @include transition(background-color, border-color);
+
+  .page-title {
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-2xl;
+    color: var(--primary-color);
+    margin: 0;
+
+    @include respond-below(md) {
+      font-size: $font-size-xl;
+    }
+  }
+
+  .right-section {
+    @include flex-center;
+    gap: spacing(6);
+  }
+
+  // Icons
+  .icons {
+    @include flex-center;
+    gap: spacing(4);
+
+    .icon-wrapper {
+      position: relative;
+      cursor: pointer;
+
+      i {
+        font-size: $font-size-xl;
+        color: var(--primary-color);
+        @include transition(color, transform);
+      }
+
+      &:hover i {
+        color: $primary-dark;
+        transform: scale(1.15);
+      }
+
+      .badge {
+        position: absolute;
+        top: -6px;
+        right: -8px;
+        background-color: $danger;
+        color: $white;
+        font-size: 0.65rem;
+        font-weight: $font-weight-semibold;
+        padding: 2px 6px;
+        border-radius: 999px;
+        line-height: 1;
+      }
+    }
+  }
+
+  // User Info
+  .user-info {
+    @include flex-center;
+    gap: spacing(3);
+
+    .image {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-placeholder {
+        width: 100%;
+        height: 100%;
+        @include gradient-primary;
+        @include flex-center;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        color: $white;
+      }
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+
+      h5 {
+        font-weight: $font-weight-semibold;
+        color: var(--primary-color);
+        margin: 0;
+        font-size: $font-size-base;
+      }
+
+      p {
+        margin: 0;
+        font-size: $font-size-sm;
+        color: var(--text-muted);
+      }
+    }
+  }
+
+  @include respond-below(md) {
+    padding: 0 spacing(4);
+    height: auto;
+    min-height: $profile-bar-height;
+
+    .right-section {
+      gap: spacing(3);
+    }
+
+    .user-info {
+      .image {
+        width: 40px;
+        height: 40px;
+      }
+
+      .details {
+        h5 {
+          font-size: $font-size-sm;
+        }
+
+        p {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+// ==================== Sticky Navbar Behavior ====================
+.navbar.sticky-top {
+  @include shadow-md;
+}
+
+// ==================== Responsive Adjustments ====================
+@include respond-below(md) {
+  .homepage-navbar {
+    .navbar-nav {
+      margin-top: spacing(3);
+    }
+
+    .nav-link {
+      margin-bottom: spacing(2);
+    }
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  .homepage-navbar,
+  .navbar-logged-in,
+  .profile-bar {
+    @include print-hide;
+  }
+}

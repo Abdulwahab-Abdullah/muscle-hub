@@ -1,0 +1,146 @@
+// ==================== Muscle Hub - Main Stylesheet ====================
+// Project: Muscle Hub Fitness Tracker
+// Architecture: ITCSS (Inverted Triangle CSS) + SMACSS
+// Methodology: BEM-like naming convention
+// Author: Muscle Hub Team
+// ==================================================================================
+
+// ==================== 1. Abstracts ====================
+// Variables, functions, mixins - no CSS output
+@use "./helpers" as *;
+
+// ==================== 2. Base ====================
+// Reset, typography, animations - low specificity
+@use "base";
+
+// ==================== 3. Themes ====================
+// Light/Dark modes, RTL support
+@use "themes";
+
+// ==================== 4. Layout ====================
+// Grid system, navbar, sidebar, footer
+@use "layout";
+
+// ==================== 5. Components ====================
+// Reusable UI components
+@use "components";
+
+// ==================== 6. Pages ====================
+// Page-specific styles
+@use "pages";
+
+// ==================== Global Utilities ====================
+
+// App Layout
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-left: $sidebar-width-desktop;
+  @include flex-column;
+  flex-grow: 1;
+  min-height: 100vh;
+  @include transition(margin);
+
+  @include respond-below(md) {
+    margin-left: $sidebar-width-mobile;
+  }
+
+  &.sidebar-hidden {
+    margin-left: 0;
+  }
+}
+
+.page-content {
+  flex-grow: 1;
+  padding: spacing(6);
+
+  @include respond-below(md) {
+    padding: spacing(4);
+  }
+}
+
+// ==================== Print Styles ====================
+@media print {
+  .sidebar,
+  .navbar,
+  .profile-bar,
+  .footer,
+  .go-up,
+  .go-down,
+  .toast-container {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .page-content {
+    padding: 0 !important;
+  }
+}
+
+// ==================== Accessibility ====================
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: $white;
+  padding: spacing(2) spacing(4);
+  z-index: z(modal) + 1;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+// ==================== Performance ====================
+// Enable GPU acceleration for animations
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+// ==================== Custom Scrollbar (Global) ====================
+* {
+  @include custom-scrollbar;
+}
+
+// ==================== Focus Styles ====================
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+// ==================== Smooth Scroll ====================
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

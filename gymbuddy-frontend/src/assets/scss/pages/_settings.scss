@@ -1,0 +1,267 @@
+@use "../helpers" as *;
+
+.settings-page {
+  background: var(--background-color); // Light/Dark theme
+  min-height: 100vh;
+  padding: spacing(8) 0;
+
+  .loading-container {
+    @include flex-center;
+    @include flex-column;
+    min-height: 50vh;
+    color: var(--primary-color);
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 4px solid var(--primary-light);
+      border-top-color: var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    p {
+      margin-top: spacing(4);
+      font-size: $font-size-xl;
+      font-weight: $font-weight-semibold;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // ==================== Sections ====================
+  .settings-section {
+    margin-bottom: spacing(8);
+
+    .section-title {
+      color: var(--primary-color);
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-semibold;
+      margin-bottom: spacing(4);
+      display: flex;
+      align-items: center;
+
+      &.danger {
+        color: #dc3545;
+      }
+    }
+
+    .settings-card {
+      background: var(--card-bg);
+      padding: spacing(8);
+      border-radius: var(--border-radius-xl);
+      @include shadow-lg;
+      @include transition(all);
+
+      &.danger-card {
+        border: 2px solid rgba(220, 53, 69, 0.2);
+      }
+    }
+  }
+
+  // ==================== Profile Photo Section ====================
+  .profile-photo-section {
+    display: flex;
+    align-items: center;
+    gap: spacing(6);
+    margin-bottom: spacing(8);
+    padding-bottom: spacing(6);
+    border-bottom: 1px solid var(--border-color);
+
+    .photo-preview {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 4px 15px rgba(56, 182, 255, 0.3);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .photo-placeholder {
+        width: 100%;
+        height: 100%;
+        @include gradient-primary;
+        @include flex-center;
+        font-size: $font-size-4xl;
+        color: $white;
+      }
+    }
+
+    .photo-actions {
+      display: flex;
+      flex-direction: column;
+      gap: spacing(3);
+
+      .btn-upload,
+      .btn-remove {
+        padding: spacing(3) spacing(6);
+        border-radius: var(--border-radius);
+        font-weight: $font-weight-semibold;
+        cursor: pointer;
+        @include transition(all);
+      }
+
+      .btn-upload {
+        background: var(--primary-color);
+        color: $white;
+
+        &:hover {
+          transform: translateY(-2px);
+          @include shadow-md;
+        }
+      }
+
+      .btn-remove {
+        background: var(--card-bg);
+        color: #dc3545;
+        border: 2px solid #dc3545;
+
+        &:hover {
+          background: #dc3545;
+          color: $white;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  // ==================== Form Rows ====================
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: spacing(6);
+  }
+
+  .form-group {
+    margin-bottom: spacing(4);
+
+    label {
+      font-weight: $font-weight-semibold;
+      color: var(--text-color);
+      margin-bottom: spacing(2);
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: spacing(3) spacing(4);
+      border-radius: var(--border-radius);
+      border: 2px solid var(--border-color);
+      background: var(--input-bg);
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(56, 182, 255, 0.1);
+      }
+    }
+  }
+
+  // ==================== Toggle Switch ====================
+  .toggle-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: spacing(4);
+    background: var(--card-bg);
+    border-radius: var(--border-radius-xl);
+    margin-bottom: spacing(4);
+    @include transition(all);
+
+    &:hover {
+      @include shadow-md;
+    }
+
+    .toggle-info {
+      h4 {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        color: var(--text-color);
+      }
+      p {
+        font-size: $font-size-sm;
+        color: var(--text-muted);
+      }
+    }
+  }
+
+  // ==================== Danger Zone ====================
+  .danger-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: spacing(4);
+    background: rgba(220, 53, 69, 0.05);
+    border-radius: var(--border-radius-xl);
+    margin-bottom: spacing(4);
+    border: 1px solid rgba(220, 53, 69, 0.1);
+
+    h4 {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      color: #dc3545;
+    }
+    p {
+      font-size: $font-size-sm;
+      color: var(--text-muted);
+    }
+
+    .btn-danger {
+      padding: spacing(3) spacing(6);
+      background: var(--card-bg);
+      color: #dc3545;
+      border: 2px solid #dc3545;
+      border-radius: var(--border-radius);
+      font-weight: $font-weight-semibold;
+
+      &:hover {
+        background: #dc3545;
+        color: $white;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// ==================== Dark Mode ====================
+.dark-mode {
+  .settings-page {
+    background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+  }
+
+  .settings-card,
+  .profile-photo-section,
+  .form-group input,
+  .toggle-option,
+  .danger-option {
+    background: var(--card-bg);
+    color: var(--text-color);
+    @include shadow-md;
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .profile-photo-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .danger-option {
+    flex-direction: column;
+    gap: spacing(4);
+    text-align: center;
+  }
+}

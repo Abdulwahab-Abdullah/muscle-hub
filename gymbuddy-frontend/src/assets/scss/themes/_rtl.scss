@@ -1,0 +1,292 @@
+@use "../helpers" as *;
+
+// ==================== RTL (Right to Left) Support ====================
+
+[dir="rtl"] {
+  // ========== Text Alignment ==========
+  text-align: right;
+
+  // ========== Layout Direction ==========
+  direction: rtl;
+
+  // ========== Flexbox Direction ==========
+  .flex-row {
+    flex-direction: row-reverse;
+  }
+
+  // ========== Margins & Padding ==========
+  // Auto-reverse margins
+  .ms-auto {
+    margin-right: auto !important;
+    margin-left: 0 !important;
+  }
+
+  .me-auto {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+
+  // ========== Positioning ==========
+  .text-left {
+    text-align: right !important;
+  }
+
+  .text-right {
+    text-align: left !important;
+  }
+
+  // ========== Borders ==========
+  .border-left {
+    border-right: 1px solid var(--border-color);
+    border-left: none;
+  }
+
+  .border-right {
+    border-left: 1px solid var(--border-color);
+    border-right: none;
+  }
+
+  // ========== Navbar ==========
+  .navbar {
+    .navbar-nav {
+      flex-direction: row-reverse;
+    }
+
+    .nav-item {
+      margin-left: 0;
+      margin-right: spacing(4);
+
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  // ========== Sidebar ==========
+  .sidebar {
+    left: auto;
+    right: 0;
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-right: $sidebar-width-desktop;
+
+    @include respond-below(md) {
+      margin-right: $sidebar-width-mobile;
+    }
+
+    &.sidebar-hidden {
+      margin-right: 0;
+    }
+  }
+
+  .show-sidebar-btn {
+    left: auto;
+    right: 0;
+    border-radius: 8px 0 0 8px;
+
+    i::before {
+      content: "\f104"; // Left arrow for RTL
+    }
+  }
+
+  // ========== Cards ==========
+  .card {
+    text-align: right;
+  }
+
+  // ========== Buttons with Icons ==========
+  .btn {
+    i {
+      margin-left: 0;
+      margin-right: spacing(2);
+
+      &:last-child {
+        margin-right: 0;
+        margin-left: spacing(2);
+      }
+    }
+  }
+
+  // ========== Forms ==========
+  .form-group {
+    label {
+      text-align: right;
+    }
+  }
+
+  .input-group {
+    flex-direction: row-reverse;
+
+    .input-group-text {
+      border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    }
+
+    input {
+      border-radius: var(--border-radius-sm) 0 0 var(--border-radius-sm);
+    }
+  }
+
+  // ========== Modals ==========
+  .modal-header {
+    .btn-close {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  // ========== Tables ==========
+  table {
+    th,
+    td {
+      text-align: right;
+
+      &:first-child {
+        border-top-right-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-child {
+        border-top-left-radius: var(--border-radius);
+        border-bottom-left-radius: var(--border-radius);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  // ========== Lists ==========
+  ul,
+  ol {
+    padding-right: 0;
+    padding-left: spacing(5);
+  }
+
+  // ========== Arrows & Icons ==========
+  .arrow-right {
+    transform: rotate(180deg);
+  }
+
+  .arrow-left {
+    transform: rotate(180deg);
+  }
+
+  // Reverse chevrons
+  .fa-chevron-right::before {
+    content: "\f053"; // chevron-left
+  }
+
+  .fa-chevron-left::before {
+    content: "\f054"; // chevron-right
+  }
+
+  // ========== Animations ==========
+  // Arrow animation for RTL
+  @keyframes arrowMoveRtl {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-5px); // Opposite direction
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .btn i {
+    animation: arrowMoveRtl 1.5s infinite;
+  }
+
+  // ========== Chat Messages ==========
+  .message-wrapper {
+    &.user {
+      justify-content: flex-start;
+    }
+
+    &.bot {
+      justify-content: flex-end;
+    }
+  }
+
+  // ========== Breadcrumbs ==========
+  .breadcrumb-item {
+    &::before {
+      content: "\\" !important; // Reverse slash
+    }
+  }
+
+  // ========== Dropdown ==========
+  .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+
+  // ========== Profile Bar ==========
+  .profile-bar {
+    .right-section {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // ========== Stats Cards ==========
+  .stat-card {
+    &::before {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  // ========== Progress Bars ==========
+  .progress-bar {
+    transform-origin: right;
+  }
+
+  // ========== Tooltips ==========
+  .tooltip {
+    &.bs-tooltip-start {
+      .tooltip-arrow {
+        right: auto;
+        left: 0;
+      }
+    }
+
+    &.bs-tooltip-end {
+      .tooltip-arrow {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+
+// ==================== RTL Specific Font ====================
+[dir="rtl"] {
+  font-family: "Cairo", "Tajawal", "Poppins", sans-serif;
+
+  // Adjust letter spacing for Arabic
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    letter-spacing: 0;
+  }
+}
+
+// ==================== Print RTL ====================
+@media print {
+  [dir="rtl"] {
+    .sidebar,
+    .navbar,
+    .footer {
+      display: none;
+    }
+  }
+}

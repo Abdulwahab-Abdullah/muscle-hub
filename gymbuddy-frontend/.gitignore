@@ -1,0 +1,31 @@
+# ================= Node / Vue =================
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ================= Laravel / PHP =================
+vendor/
+.env
+.env.backup
+.phpunit.result.cache
+/storage/*.log
+/storage/*.key
+/storage/framework/cache/data/
+bootstrap/cache/*.php
+
+# ================= Editor / OS =================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

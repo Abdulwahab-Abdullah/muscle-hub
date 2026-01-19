@@ -1,0 +1,8 @@
+// ==================== Abstracts Index ====================
+// Import order matters! Variables → Functions → Mixins
+
+// helpers/_index.scss
+@forward "variables";
+@forward "functions";
+@forward "mixins";
+@forward "animations";

@@ -1,0 +1,409 @@
+@use "../helpers" as *;
+
+// ==================== Base Button ====================
+.btn {
+  @include btn-base;
+
+  i {
+    @include transition(transform);
+  }
+
+  &:hover:not(:disabled) i {
+    animation: arrowMoveEn 1.5s infinite;
+  }
+}
+
+// ==================== Button Variants ====================
+.btn-primary {
+  @include btn-primary;
+}
+
+.btn-outline-primary {
+  @include btn-outline;
+}
+
+.btn-secondary {
+  @include btn-base;
+  background: var(--btn-secondary-bg);
+  color: var(--text-color);
+
+  &:hover:not(:disabled) {
+    background: var(--btn-secondary-hover);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-success {
+  @include btn-base;
+  background: $success;
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: darken($success, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-danger {
+  @include btn-danger;
+}
+
+.btn-warning {
+  @include btn-base;
+  background: $warning;
+  color: $gray-900;
+
+  &:hover:not(:disabled) {
+    background: darken($warning, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-info {
+  @include btn-base;
+  background: $info;
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: darken($info, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-light {
+  @include btn-base;
+  background: $white;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+
+  &:hover:not(:disabled) {
+    background: $gray-100;
+    transform: translateY(-2px);
+  }
+}
+
+.btn-dark {
+  @include btn-base;
+  background: $gray-900;
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: $gray-800;
+    transform: translateY(-2px);
+  }
+}
+
+// ==================== Button Sizes ====================
+.btn-sm {
+  padding: spacing(2) spacing(4);
+  font-size: $font-size-sm;
+}
+
+.btn-lg {
+  padding: spacing(4) spacing(8);
+  font-size: $font-size-lg;
+}
+
+// ==================== Button Block ====================
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// ==================== Icon Buttons ====================
+.btn-icon {
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  @include flex-center;
+  border-radius: 50%;
+
+  &.btn-icon-sm {
+    width: 35px;
+    height: 35px;
+  }
+
+  &.btn-icon-lg {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+// ==================== Button Group ====================
+.btn-group {
+  display: inline-flex;
+  gap: spacing(2);
+
+  .btn {
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+// ==================== Custom Buttons ====================
+.btn-custom {
+  @include btn-base;
+  background: var(--primary-color);
+  color: $white;
+  @include shadow-md;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    @include shadow-lg;
+  }
+}
+
+.btn-save {
+  @include btn-primary;
+  @include shadow-md;
+
+  &:hover:not(:disabled) {
+    @include shadow-lg;
+  }
+}
+
+.btn-cancel {
+  @include btn-base;
+  background: $gray-600;
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: $gray-700;
+  }
+}
+
+.btn-clear {
+  @include btn-base;
+  background: $warning;
+  color: $gray-900;
+
+  &:hover:not(:disabled) {
+    background: darken($warning, 10%);
+  }
+}
+
+.btn-remove {
+  @include btn-base;
+  background: transparent;
+  border: 2px solid $danger;
+  color: $danger;
+
+  &:hover:not(:disabled) {
+    background: $danger;
+    color: $white;
+  }
+}
+
+.btn-delete {
+  @include btn-base;
+  background: transparent;
+  border: none;
+  color: $danger;
+  padding: spacing(2) spacing(3);
+  @include transition(color, transform);
+
+  &:hover:not(:disabled) {
+    color: darken($danger, 10%);
+    transform: scale(1.15);
+  }
+}
+
+.btn-edit {
+  @include btn-base;
+  background: var(--primary-color);
+  color: $white;
+  @include flex-center;
+  gap: spacing(2);
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-add {
+  @include btn-base;
+  background: var(--primary-color);
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+  }
+}
+
+.btn-add-meal,
+.btn-add-to-plan,
+.btn-add-custom {
+  @include btn-base;
+  background: var(--primary-color);
+  color: $white;
+
+  &:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+}
+
+.btn-log {
+  @include btn-primary;
+  @include shadow-md;
+
+  &:hover:not(:disabled) {
+    @include shadow-lg;
+  }
+}
+
+.btn-reset {
+  @include btn-danger;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
+}
+
+.btn-upload {
+  @include btn-primary;
+  @include flex-center;
+  gap: spacing(2);
+}
+
+// ==================== Loading State ====================
+.btn-loading {
+  position: relative;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid $white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.6s linear infinite;
+  }
+
+  span {
+    visibility: hidden;
+  }
+}
+
+// ==================== Go Up/Down Buttons ====================
+.go-up,
+.go-down {
+  position: fixed;
+  bottom: spacing(8);
+  right: spacing(8);
+  z-index: z(toast);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  @include transition(opacity, transform);
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  a,
+  button {
+    @include btn-base;
+    @include flex-center;
+    width: 50px;
+    height: 50px;
+    background: var(--primary-color);
+    color: $white;
+    border-radius: 50%;
+    @include shadow-lg;
+
+    &:hover {
+      background: var(--primary-dark);
+      transform: translateY(-5px);
+    }
+
+    i {
+      font-size: $font-size-2xl;
+    }
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  .btn i {
+    &:first-child {
+      margin-right: 0;
+      margin-left: spacing(2);
+    }
+
+    &:last-child {
+      margin-left: 0;
+      margin-right: spacing(2);
+    }
+  }
+
+  .btn:hover:not(:disabled) i {
+    animation: arrowMoveAr 1.5s infinite;
+  }
+
+  .btn-group {
+    .btn {
+      &:not(:first-child) {
+        border-top-left-radius: $btn-border-radius;
+        border-bottom-left-radius: $btn-border-radius;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &:not(:last-child) {
+        border-top-right-radius: $btn-border-radius;
+        border-bottom-right-radius: $btn-border-radius;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  .go-up,
+  .go-down {
+    right: auto;
+    left: spacing(8);
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .btn {
+    padding: spacing(2) spacing(4);
+    font-size: $font-size-sm;
+  }
+
+  .btn-lg {
+    padding: spacing(3) spacing(6);
+    font-size: $font-size-base;
+  }
+
+  .go-up,
+  .go-down {
+    bottom: spacing(6);
+    right: spacing(4);
+
+    a,
+    button {
+      width: 45px;
+      height: 45px;
+    }
+  }
+}

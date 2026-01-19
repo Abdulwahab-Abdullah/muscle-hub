@@ -1,0 +1,263 @@
+@use "../helpers" as *;
+
+// ==================== Modal Overlay ====================
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--modal-backdrop);
+  @include flex-center;
+  z-index: z(modal);
+  padding: spacing(4);
+  animation: fadeIn $duration-base ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// ==================== Modal Content ====================
+.modal-content {
+  background: var(--modal-bg);
+  border-radius: $modal-border-radius;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  @include flex-column;
+  @include shadow-xl;
+  animation: scaleIn $duration-base ease;
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+// ==================== Modal Header ====================
+.modal-header {
+  @include flex-between;
+  padding: spacing(6);
+  border-bottom: 1px solid var(--border-color);
+
+  h4 {
+    margin: 0;
+    font-size: $font-size-xl;
+    color: var(--text-color);
+  }
+
+  .btn-close {
+    background: none;
+    border: none;
+    font-size: $font-size-4xl;
+    cursor: pointer;
+    color: var(--text-muted);
+    line-height: 1;
+    @include transition(color);
+
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+}
+
+// ==================== Modal Body ====================
+.modal-body {
+  padding: spacing(6);
+  overflow-y: auto;
+  @include custom-scrollbar;
+
+  .search-input {
+    width: 100%;
+    padding: spacing(3);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: spacing(4);
+    font-size: $font-size-base;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+  }
+
+  .meals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: spacing(4);
+    margin-bottom: spacing(8);
+  }
+}
+
+// ==================== Modal Footer ====================
+.modal-footer {
+  @include flex-between;
+  padding: spacing(6);
+  border-top: 1px solid var(--border-color);
+
+  .btn {
+    min-width: 100px;
+  }
+}
+
+// ==================== Library Meal Card (in modal) ====================
+.library-meal-card {
+  padding: spacing(4);
+  background: var(--section-bg);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-color);
+  @include transition(transform, box-shadow);
+
+  &:hover {
+    transform: translateY(-3px);
+    @include shadow-md;
+  }
+
+  h6 {
+    margin: 0 0 spacing(2) 0;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: var(--text-color);
+  }
+
+  .meal-stats {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    margin-bottom: spacing(3);
+  }
+
+  .meal-add-section {
+    @include flex-center;
+    gap: spacing(2);
+
+    &.modern {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+// ==================== Portion Toggle ====================
+.portion-toggle {
+  display: flex;
+  background: rgba(56, 182, 255, 0.1);
+  border-radius: 999px;
+  padding: spacing(1);
+
+  button {
+    border: none;
+    background: transparent;
+    padding: spacing(1) spacing(3);
+    font-size: $font-size-sm;
+    border-radius: 999px;
+    cursor: pointer;
+    color: var(--text-muted);
+    @include transition(background, color);
+
+    &.active {
+      background: var(--primary-color);
+      color: $white;
+      font-weight: $font-weight-semibold;
+    }
+  }
+}
+
+// ==================== Custom Meal Form ====================
+.custom-meal-section {
+  border-top: 1px dashed var(--border-color);
+  padding-top: spacing(6);
+
+  h5 {
+    margin-bottom: spacing(4);
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: var(--text-color);
+  }
+
+  .custom-meal-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: spacing(4);
+
+    .form-group {
+      @include flex-column;
+
+      label {
+        font-size: $font-size-sm;
+        margin-bottom: spacing(1);
+        font-weight: $font-weight-medium;
+        color: var(--text-color);
+      }
+
+      .form-input {
+        @include input-base;
+        padding: spacing(2) spacing(3);
+        font-size: $font-size-sm;
+      }
+    }
+
+    .btn-add-custom {
+      grid-column: span 2;
+      @include btn-primary;
+      border-radius: var(--border-radius-sm);
+      padding: spacing(3);
+      font-size: $font-size-base;
+      height: fit-content;
+      margin: auto;
+      margin-bottom: 0;
+      width: fit-content;
+    }
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .modal-content {
+    max-width: 95vw;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: spacing(4);
+  }
+
+  .meals-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .custom-meal-form {
+    grid-template-columns: 1fr !important;
+
+    .btn-add-custom {
+      grid-column: span 1;
+    }
+  }
+}
+
+// ==================== RTL Support ====================
+[dir="rtl"] {
+  .modal-header {
+    .btn-close {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+}
+
+// ==================== Print ====================
+@media print {
+  .modal-overlay {
+    display: none;
+  }
+}

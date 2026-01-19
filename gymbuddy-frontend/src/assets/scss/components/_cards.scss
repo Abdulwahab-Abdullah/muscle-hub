@@ -1,0 +1,387 @@
+@use "../helpers" as *;
+
+// ==================== Base Card ====================
+.card {
+  @include card;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    @include shadow-lg;
+  }
+}
+
+// ==================== Card Sections ====================
+.card-header {
+  padding: spacing(4) spacing(5);
+  background: var(--section-bg);
+  border-bottom: 1px solid var(--border-color);
+
+  h4,
+  h5 {
+    margin: 0;
+    color: var(--text-color);
+  }
+}
+
+.card-body {
+  padding: spacing(5);
+
+  .card-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: var(--text-color);
+    margin-bottom: spacing(3);
+  }
+
+  .card-text {
+    color: var(--text-muted);
+    line-height: $line-height-relaxed;
+    margin-bottom: spacing(4);
+  }
+}
+
+.card-footer {
+  padding: spacing(4) spacing(5);
+  background: var(--section-bg);
+  border-top: 1px solid var(--border-color);
+}
+
+// ==================== Card Variants ====================
+.card-primary {
+  border: 2px solid var(--primary-color);
+
+  .card-header {
+    background: var(--primary-color);
+    color: $white;
+
+    h4,
+    h5 {
+      color: $white;
+    }
+  }
+}
+
+.card-bordered {
+  border: 2px solid var(--border-color);
+  @include shadow-sm;
+}
+
+.card-elevated {
+  @include shadow-lg;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// ==================== Specific Cards ====================
+
+// Exercise Card
+.exercise-card {
+  border: 2px solid var(--primary-light);
+  border-radius: var(--border-radius);
+  @include transition(transform, box-shadow, border-color);
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+
+  &:hover {
+    border-color: var(--primary-color);
+    @include shadow-md;
+    transform: translateY(-5px);
+
+    .exercise-image-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(56, 182, 255, 0.15);
+      pointer-events: none;
+    }
+
+    .exercise-name {
+      color: var(--primary-color);
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .exercise-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--section-bg);
+    @include flex-center;
+    position: relative;
+    @include transition(background);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .card-body {
+    @include flex-column;
+    padding: spacing(4);
+  }
+
+  .exercise-name {
+    color: var(--text-color);
+    font-size: $font-size-base;
+    min-height: 40px;
+    @include flex-center;
+    text-align: center;
+    margin-bottom: spacing(3);
+    @include transition(color);
+  }
+}
+
+// Service Card (Homepage)
+.service-card {
+  overflow: hidden;
+  position: relative;
+  @include transition(transform);
+  @include shadow-md;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @include transition(transform);
+  }
+
+  .card-body {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: spacing(4);
+    opacity: 0;
+    backdrop-filter: blur(5px);
+    background-color: rgba(56, 182, 255, 0.4);
+    @include transition(bottom, opacity, background-color);
+
+    .card-title {
+      font-weight: $font-weight-bold;
+      font-size: $font-size-2xl;
+      color: $white;
+    }
+
+    .card-text {
+      font-size: $font-size-base;
+      color: $white;
+    }
+
+    .btn {
+      i {
+        animation: arrowMoveEn 1.5s infinite;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    @include shadow-lg;
+
+    .card-body {
+      bottom: 0;
+      opacity: 1;
+      background-color: rgba(13, 153, 255, 0.4);
+    }
+
+    img {
+      transform: scale(1.3) rotate(7deg);
+    }
+  }
+}
+
+// Stat Card
+.stat-card {
+  @include card-hover;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    opacity: 0;
+    @include transition(opacity);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .stat-icon {
+    font-size: $font-size-4xl;
+    margin-bottom: spacing(4);
+    @include bounce;
+  }
+
+  .stat-title {
+    font-size: $font-size-sm;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: spacing(3);
+    font-weight: $font-weight-semibold;
+  }
+
+  .stat-value {
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-bold;
+    color: var(--text-color);
+    margin: spacing(2) 0;
+
+    &.primary {
+      color: var(--primary-color);
+    }
+
+    &.success {
+      color: $success;
+    }
+  }
+
+  .stat-subtitle {
+    font-size: $font-size-sm;
+    color: var(--text-light);
+  }
+
+  .progress-bar-mini {
+    height: 8px;
+    background: var(--progress-bg);
+    border-radius: 10px;
+    margin-top: spacing(4);
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      @include gradient-primary;
+      @include transition(width);
+      border-radius: 10px;
+    }
+  }
+}
+
+// Plan Card
+.plan-card {
+  background-color: var(--primary-light);
+  border-radius: var(--border-radius-lg);
+  padding: spacing(8) spacing(6);
+  @include shadow-md;
+  @include transition(transform, box-shadow);
+  position: relative;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-10px);
+    @include shadow-lg;
+  }
+
+  .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--primary-color);
+    color: $white;
+    font-weight: $font-weight-bold;
+    padding: spacing(2) spacing(4);
+    border-radius: var(--border-radius);
+  }
+
+  .plan-title {
+    color: var(--primary-color);
+    font-size: $font-size-2xl;
+    margin-bottom: spacing(4);
+  }
+
+  ul {
+    li {
+      margin-bottom: spacing(3);
+
+      i {
+        font-size: $font-size-xl;
+        color: var(--primary-color) !important;
+        margin-right: spacing(2);
+      }
+    }
+  }
+
+  a i {
+    animation: arrowMoveEn 1.5s infinite;
+  }
+}
+
+// Preview Card (Dashboard features)
+.preview-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg);
+  height: 500px;
+  @include flex-center;
+  background-color: var(--section-bg);
+  text-align: center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $white;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    padding: 0 spacing(4);
+  }
+
+  i {
+    font-size: $font-size-4xl;
+    color: var(--primary-color);
+    margin-bottom: spacing(3);
+  }
+
+  h5 {
+    font-weight: $font-weight-bold;
+    margin-bottom: spacing(2);
+  }
+
+  p {
+    font-size: $font-size-base;
+  }
+}
+
+// ==================== Responsive ====================
+@include respond-below(md) {
+  .card-body {
+    padding: spacing(4);
+  }
+
+  .exercise-image-wrapper {
+    height: 180px;
+  }
+
+  .exercise-name {
+    font-size: $font-size-sm;
+    min-height: 35px;
+  }
+
+  .stat-card {
+    .stat-value {
+      font-size: $font-size-2xl;
+    }
+  }
+}
