@@ -1,5 +1,30 @@
-# Vue 3 + TypeScript + Vite
+# 💪 Muscle Hub - Fitness Tracker App
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A full-stack fitness tracking application with support for Arabic and English.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## ✨ Features
+
+- 🌐 Full bilingual support (Arabic/English)
+- 🌓 Light/Dark mode
+- 📊 Track workouts and progress
+- 🍎 Calorie calculator
+- 🤖 AI assistant
+- 📱 Responsive design
+
+## 🛠️ Technologies Used
+
+- **Frontend:** Vue 3 + TypeScript + Vite + Bootstrap 5 + Vue Router + Pinia + i18n + Axios
+- **Backend:** Laravel (PHP)
+- **Database:** MySQL
+- **Charts & Data:** Chart.js, localStorage (for now)
+
+## 🚀 Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/xHebo/muscle-hub.git
+cd muscle-hub
+```
+
+Made with ❤️ by Abdulwahab Abdullah
