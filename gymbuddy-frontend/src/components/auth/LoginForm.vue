@@ -56,7 +56,7 @@
         </button>
       </form>
 
-      <div class="text-end mb-3">
+      <div class="text-center my-3">
         <router-link
           :to="`/${$i18n.locale}/forgot-password`"
           class="text-muted small text-decoration-none"

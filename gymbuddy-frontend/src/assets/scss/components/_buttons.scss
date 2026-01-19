@@ -1,5 +1,5 @@
 @use "../helpers" as *;
-
+@use "sass:color";
 // ==================== Base Button ====================
 .btn {
   @include btn-base;
@@ -39,7 +39,7 @@
   color: $white;
 
   &:hover:not(:disabled) {
-    background: darken($success, 10%);
+    background: color.adjust($success, $lightness: -10%);
     transform: translateY(-2px);
   }
 }
@@ -54,7 +54,7 @@
   color: $gray-900;
 
   &:hover:not(:disabled) {
-    background: darken($warning, 10%);
+    background: color.adjust($warning, $lightness: -10%);
     transform: translateY(-2px);
   }
 }
@@ -65,7 +65,7 @@
   color: $white;
 
   &:hover:not(:disabled) {
-    background: darken($info, 10%);
+    background: color.adjust($info, $lightness: -10%);
     transform: translateY(-2px);
   }
 }
@@ -186,7 +186,7 @@
   color: $gray-900;
 
   &:hover:not(:disabled) {
-    background: darken($warning, 10%);
+    background: color.adjust($warning, $lightness: -10%);
   }
 }
 
@@ -211,7 +211,7 @@
   @include transition(color, transform);
 
   &:hover:not(:disabled) {
-    color: darken($danger, 10%);
+    color: color.adjust($danger, $lightness: -10%);
     transform: scale(1.15);
   }
 }

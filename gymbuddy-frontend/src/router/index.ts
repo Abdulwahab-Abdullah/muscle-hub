@@ -247,12 +247,12 @@ const router = createRouter({
 });
 
 /* 🔐 Route Guard */
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _form, next) => {
   const userStore = useUserStore();
 
   // تحديث اللغة بناءً على الرابط
   if (to.meta.locale) {
-    i18n.global.locale.value = to.meta.locale as string;
+    i18n.global.locale.value = to.meta.locale as "en" | "ar";
     localStorage.setItem("locale", to.meta.locale as string);
 
     // تحديث اتجاه الصفحة

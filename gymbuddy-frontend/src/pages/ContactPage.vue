@@ -109,7 +109,6 @@ const wordCount = computed(() => {
 });
 
 const isOverLimit = computed(() => wordCount.value > MAX_WORDS);
-const successMessage = ref("");
 
 function limitWords() {
   const words = form.value.message.trim().split(/\s+/).filter(Boolean);

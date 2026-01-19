@@ -463,7 +463,7 @@ const handlePhotoUpload = async (event: Event) => {
       profilePhoto.value = res.data.avatar_url;
 
       // تخزين في localStorage للاستخدام السريع
-      localStorage.setItem("profilePhoto", profilePhoto.value);
+      localStorage.setItem("profilePhoto", profilePhoto.value ?? "");
 
       // تحديث الصورة في الـ Navbar
       window.dispatchEvent(

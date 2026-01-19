@@ -11,7 +11,7 @@
           ]"
           @click="activeTab = 'login'"
         >
-          {{ t("authPage.login") }}
+          {{ t("authLogin.loginButton") }}
         </button>
         <button
           class="btn"
@@ -20,7 +20,7 @@
           ]"
           @click="activeTab = 'register'"
         >
-          {{ t("authPage.signup") }}
+          {{ t("authRegister.registerButton") }}
         </button>
       </div>
 

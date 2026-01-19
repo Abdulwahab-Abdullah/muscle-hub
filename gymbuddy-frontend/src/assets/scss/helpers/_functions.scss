@@ -1,9 +1,9 @@
 @use "variables" as *;
-
+@use "sass:map";
 // ==================== Spacing Function ====================
 @function spacing($key) {
-  @if map-has-key($spacing, $key) {
-    @return map-get($spacing, $key);
+  @if map.has-key($spacing, $key) {
+    @return map.get($spacing, $key);
   } @else {
     @warn "Spacing key `#{$key}` not found in $spacing map. Using 0 as fallback.";
     @return 0; // بدل null
@@ -12,8 +12,8 @@
 
 // ==================== Z-Index Function ====================
 @function z($key) {
-  @if map-has-key($z-index, $key) {
-    @return map-get($z-index, $key);
+  @if map.has-key($z-index, $key) {
+    @return map.get($z-index, $key);
   } @else {
     @warn "Z-index key `#{$key}` not found in $z-index map.";
     @return null;
@@ -22,8 +22,8 @@
 
 // ==================== Breakpoint Function ====================
 @function breakpoint($key) {
-  @if map-has-key($breakpoints, $key) {
-    @return map-get($breakpoints, $key);
+  @if map.has-key($breakpoints, $key) {
+    @return map.get($breakpoints, $key);
   } @else {
     @warn "Breakpoint `#{$key}` not found in $breakpoints map.";
     @return null;

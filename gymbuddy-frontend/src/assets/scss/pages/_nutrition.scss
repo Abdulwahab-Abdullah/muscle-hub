@@ -1,5 +1,5 @@
 @use "../helpers" as *;
-
+@use "sass:color";
 // ==================== Page Header ====================
 .page-custom {
   h1:first-of-type {
@@ -95,16 +95,16 @@
   animation: pulse-warning 2s infinite;
 
   .macro-header h5 {
-    color: darken($warning, 15%);
+    color: color.adjust($warning, $lightness: 15%);
   }
 
   .macro-value {
-    color: darken($warning, 20%);
+    color: color.adjust($warning, $lightness: -20%);
   }
 
   .macro-status {
     background: rgba(255, 152, 0, 0.2);
-    color: darken($warning, 15%);
+    color: color.adjust($warning, $lightness: -15%);
   }
 
   .progress-bar {
@@ -118,16 +118,16 @@
   animation: pulse-danger 1.5s infinite;
 
   .macro-header h5 {
-    color: darken($danger, 15%);
+    color: color.adjust($danger, $lightness: 15%);
   }
 
   .macro-value {
-    color: darken($danger, 20%);
+    color: color.adjust($danger, $lightness: -20%);
   }
 
   .macro-status {
     background: rgba(244, 67, 54, 0.2);
-    color: darken($danger, 15%);
+    color: color.adjust($danger, $lightness: 15%);
   }
 
   .progress-bar {

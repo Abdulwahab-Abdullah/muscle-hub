@@ -1,4 +1,5 @@
 @use "../helpers" as *;
+@use "sass:map";
 // ==================== Homepage Wrapper ====================
 section {
   padding: spacing(14) 0;
@@ -182,8 +183,8 @@ section {
 .work-box {
   background: var(--card-bg); // يستخدم الخلفية حسب الوضع
   color: var(--text-color); // يستخدم لون النص حسب الوضع
-  padding: map-get($spacing, 6);
-  border-radius: map-get($spacing, 2);
+  padding: map.get($spacing, 6);
+  border-radius: map.get($spacing, 2);
   text-align: center;
   box-shadow:
     0 2px 5px rgba(0, 0, 0, 0.1),
@@ -199,13 +200,13 @@ section {
   i {
     font-size: $font-size-3xl;
     color: var(--primary-color); // لون أيقونة حسب الوضع
-    margin-bottom: map-get($spacing, 2);
+    margin-bottom: map.get($spacing, 2);
     display: block;
   }
 
   h5 {
     font-weight: $font-weight-semibold;
-    margin-bottom: map-get($spacing, 2);
+    margin-bottom: map.get($spacing, 2);
   }
 
   p {
@@ -225,7 +226,7 @@ section {
 // ==================== Preview Cards ====================
 .preview-card {
   position: relative;
-  border-radius: map-get($spacing, 2);
+  border-radius: map.get($spacing, 2);
   overflow: hidden;
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.1),
@@ -251,10 +252,10 @@ section {
     width: 100%;
     position: relative;
     z-index: 2;
-    padding: map-get($spacing, 4);
+    padding: map.get($spacing, 4);
     background: rgba(0, 0, 0, 0.35);
-    border-top-left-radius: map-get($spacing, 2);
-    border-top-right-radius: map-get($spacing, 2);
+    border-top-left-radius: map.get($spacing, 2);
+    border-top-right-radius: map.get($spacing, 2);
     color: $white;
     display: flex;
     flex-direction: column;
@@ -264,7 +265,7 @@ section {
     i {
       font-size: $font-size-3xl;
       color: var(--primary-color);
-      margin-right: map-get($spacing, 2);
+      margin-right: map.get($spacing, 2);
       vertical-align: middle;
     }
 
@@ -273,7 +274,7 @@ section {
       font-size: $font-size-lg;
       display: flex;
       align-items: center;
-      margin-bottom: map-get($spacing, 1);
+      margin-bottom: map.get($spacing, 1);
       color: $primary-color;
     }
 
@@ -325,8 +326,8 @@ section {
 .plan-card {
   background: var(--card-bg); // يعتمد على الوضع (فاتح/داكن)
   color: var(--text-color);
-  padding: map-get($spacing, 6);
-  border-radius: map-get($spacing, 2);
+  padding: map.get($spacing, 6);
+  border-radius: map.get($spacing, 2);
   box-shadow:
     0 4px 12px rgba(0, 0, 0, 0.1),
     0 8px 20px rgba(0, 0, 0, 0.05); // ظلال متعددة لإحساس العمق
@@ -340,19 +341,19 @@ section {
 
   .badge {
     position: absolute;
-    top: map-get($spacing, 3);
+    top: map.get($spacing, 3);
     left: 50%;
     transform: translateX(-50%);
     background: var(--primary-color);
     color: $white;
-    padding: map-get($spacing, 1) map-get($spacing, 3);
-    border-radius: map-get($spacing, 1);
+    padding: map.get($spacing, 1) map.get($spacing, 3);
+    border-radius: map.get($spacing, 1);
     font-weight: $font-weight-semibold;
     font-size: $font-size-sm;
   }
 
   h3 {
-    margin: map-get($spacing, 4) 0;
+    margin: map.get($spacing, 4) 0;
     font-weight: $font-weight-bold;
     font-size: $font-size-xl;
   }
@@ -360,16 +361,16 @@ section {
   ul {
     list-style: none;
     padding: 0;
-    margin-bottom: map-get($spacing, 4);
+    margin-bottom: map.get($spacing, 4);
 
     li {
       display: flex;
       align-items: center;
-      margin-bottom: map-get($spacing, 2);
+      margin-bottom: map.get($spacing, 2);
 
       i {
         color: var(--primary-color);
-        margin-right: map-get($spacing, 2);
+        margin-right: map.get($spacing, 2);
       }
 
       span {
@@ -384,9 +385,9 @@ section {
     @include transition(all);
     background: var(--primary-color);
     color: $white;
-    padding: map-get($spacing, 2) map-get($spacing, 4);
+    padding: map.get($spacing, 2) map.get($spacing, 4);
     border: none;
-    border-radius: map-get($spacing, 1);
+    border-radius: map.get($spacing, 1);
     font-weight: $font-weight-semibold;
     cursor: pointer;
 
@@ -411,9 +412,9 @@ section {
     color: var(--text-color);
     font-weight: $font-weight-semibold;
     border: 1px solid var(--border-color);
-    border-radius: map-get($spacing, 1);
+    border-radius: map.get($spacing, 1);
     @include transition(all);
-    padding: map-get($spacing, 3) map-get($spacing, 4);
+    padding: map.get($spacing, 3) map.get($spacing, 4);
     box-shadow: var(--shadow-sm);
 
     &:not(.collapsed) {
@@ -430,7 +431,7 @@ section {
   .accordion-body {
     font-size: $font-size-base;
     color: var(--text-muted);
-    padding: map-get($spacing, 3) map-get($spacing, 4);
+    padding: map.get($spacing, 3) map.get($spacing, 4);
     border-top: 1px solid var(--border-light);
     line-height: 1.6;
   }
@@ -440,7 +441,7 @@ section {
   .card {
     background: var(--card-bg); // يعتمد على الوضع الداكن/الفاتح
     color: var(--text-color);
-    border-radius: map-get($spacing, 2);
+    border-radius: map.get($spacing, 2);
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     @include transition(all);
@@ -461,27 +462,27 @@ section {
     }
 
     .card-body {
-      padding: map-get($spacing, 4);
+      padding: map.get($spacing, 4);
       flex-grow: 1;
       display: flex;
       flex-direction: column;
 
       h5 {
         font-weight: $font-weight-semibold;
-        margin-bottom: map-get($spacing, 2);
+        margin-bottom: map.get($spacing, 2);
       }
 
       p {
         font-size: $font-size-base;
         flex-grow: 1; // يملأ المساحة المتاحة
-        margin-bottom: map-get($spacing, 2);
+        margin-bottom: map.get($spacing, 2);
       }
 
       a {
         color: var(--primary-color);
         text-decoration: none;
-        padding: map-get($spacing, 2) map-get($spacing, 3);
-        border-radius: map-get($spacing, 1);
+        padding: map.get($spacing, 2) map.get($spacing, 3);
+        border-radius: map.get($spacing, 1);
         text-align: center;
         @include transition(all);
         display: inline-block;
@@ -497,20 +498,20 @@ section {
 // ==================== CTA Section ====================
 .cta-section {
   text-align: center;
-  padding: map-get($spacing, 12) 0;
+  padding: map.get($spacing, 12) 0;
   background: $primary-color;
   color: $white;
 
   h2 {
     font-size: $font-size-4xl;
     font-weight: $font-weight-bold;
-    margin-bottom: map-get($spacing, 4);
+    margin-bottom: map.get($spacing, 4);
     line-height: 1.2;
   }
 
   p {
     font-size: $font-size-lg;
-    margin-bottom: map-get($spacing, 6);
+    margin-bottom: map.get($spacing, 6);
     line-height: 1.5;
     max-width: 700px;
     margin-left: auto;
@@ -518,8 +519,8 @@ section {
   }
 
   button {
-    padding: map-get($spacing, 2) map-get($spacing, 5);
-    border-radius: map-get($spacing, 1);
+    padding: map.get($spacing, 2) map.get($spacing, 5);
+    border-radius: map.get($spacing, 1);
     font-weight: $font-weight-semibold;
     font-size: $font-size-base;
     cursor: pointer;
@@ -551,7 +552,7 @@ section {
     }
     button {
       width: 100%;
-      padding: map-get($spacing, 3);
+      padding: map.get($spacing, 3);
     }
   }
 }

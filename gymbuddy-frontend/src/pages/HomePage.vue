@@ -4,8 +4,8 @@
       <transition name="fade" mode="out-in">
         <div class="slide" :key="currentIndex">
           <img
-            :src="slides[currentIndex].src"
-            :alt="slides[currentIndex].alt"
+            :src="slides[currentIndex]?.src"
+            :alt="slides[currentIndex]?.alt"
           />
           <div class="slide-text">
             <h1>{{ t(`home.slides.${currentIndex}.title`) }}</h1>
@@ -59,7 +59,7 @@
           <div class="col-lg-6">
             <h2 class="mb-4" v-html="t('home.intro.heading')"></h2>
             <ul>
-              <li v-for="(feature, fIdx) in 5" :key="fIdx">
+              <li v-for="fIdx in 5" :key="fIdx">
                 <i :class="featureIcons[fIdx]"></i>
                 <span>
                   <strong>{{ t(`home.intro.features.${fIdx}.title`) }}</strong>
@@ -136,8 +136,8 @@
             <div class="col-lg-4">
               <div class="image">
                 <img
-                  :src="testimonials[indexofTesti].src"
-                  :alt="testimonials[indexofTesti].alt"
+                  :src="testimonials[indexofTesti]?.src"
+                  :alt="testimonials[indexofTesti]?.alt"
                   loading="eager"
                 />
               </div>

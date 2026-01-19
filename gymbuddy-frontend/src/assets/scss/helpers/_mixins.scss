@@ -1,11 +1,12 @@
 @use "variables" as *;
 @use "functions" as *;
 @use "sass:color"; // لتجنب deprecated darken()
+@use "sass:map";
 
 // ==================== Responsive Breakpoints ====================
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (min-width: map.get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {
@@ -14,8 +15,8 @@
 }
 
 @mixin respond-below($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media (max-width: (map-get($breakpoints, $breakpoint) - 1px)) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media (max-width: (map.get($breakpoints, $breakpoint) - 1px)) {
       @content;
     }
   }

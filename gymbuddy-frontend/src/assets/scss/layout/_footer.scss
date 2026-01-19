@@ -1,5 +1,5 @@
 @use "../helpers" as *;
-
+@use "sass:map";
 // ==================== Main Footer ====================
 footer {
   h5 {
@@ -7,7 +7,7 @@ footer {
   }
   background-color: var(--footer-bg); // يدعم Light/Dark
   color: var(--text-color);
-  padding: map-get($spacing, 12) 0 map-get($spacing, 6);
+  padding: map.get($spacing, 12) 0 map.get($spacing, 6);
   @include transition(background-color, color);
 
   .container {
@@ -16,14 +16,14 @@ footer {
 
   // Footer Sections
   .row {
-    margin-bottom: map-get($spacing, 8);
+    margin-bottom: map.get($spacing, 8);
   }
 
   // Logo & Description
   h3 {
     font-weight: $font-weight-bold;
     font-size: $font-size-2xl;
-    margin-bottom: map-get($spacing, 4);
+    margin-bottom: map.get($spacing, 4);
     color: $white;
 
     i {
@@ -40,14 +40,14 @@ footer {
   p {
     color: rgba(var(--text-color-rgb), 0.7); // متغير RGB لتغيير اللون بسهولة
     line-height: $line-height-relaxed;
-    margin-bottom: map-get($spacing, 4);
+    margin-bottom: map.get($spacing, 4);
   }
 
   // Social Media Links
   .social-links {
     display: flex;
     justify-content: center; // أو flex-start
-    gap: map-get($spacing, 4);
+    gap: map.get($spacing, 4);
 
     a {
       display: inline-flex;
@@ -99,20 +99,20 @@ footer {
     h5 {
       font-weight: $font-weight-semibold;
       font-size: $font-size-lg;
-      margin-bottom: map-get($spacing, 4);
+      margin-bottom: map.get($spacing, 4);
       color: var(--text-color);
     }
 
     .info-item {
       @include flex-center;
-      gap: map-get($spacing, 3);
-      margin-bottom: map-get($spacing, 3);
+      gap: map.get($spacing, 3);
+      margin-bottom: map.get($spacing, 3);
       align-items: flex-start;
 
       i {
         font-size: $font-size-lg;
         color: var(--primary-color);
-        margin-top: map-get($spacing, 1);
+        margin-top: map.get($spacing, 1);
         min-width: 20px;
       }
 
@@ -126,7 +126,7 @@ footer {
   // Divider
   hr {
     border-color: rgba(var(--text-color-rgb), 0.2);
-    margin: map-get($spacing, 8) 0;
+    margin: map.get($spacing, 8) 0;
   }
 
   // Copyright

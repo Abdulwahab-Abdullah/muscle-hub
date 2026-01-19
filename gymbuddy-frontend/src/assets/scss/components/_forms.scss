@@ -1,5 +1,5 @@
 @use "../helpers" as *;
-
+@use "sass:map";
 // ==================== Form Group ====================
 .form-group {
   margin-bottom: spacing(6);
@@ -205,14 +205,14 @@ input[type="radio"] {
   justify-content: center;
   align-items: center;
   max-height: calc(100vh + 340px);
-  padding: map-get($spacing, 6);
+  padding: map.get($spacing, 6);
   background: var(--background-color);
   border-radius: spacing(2);
 
   .auth-card {
     width: 100%;
     max-width: 400px; // أصغر من قبل لتقليل الطول
-    padding: map-get($spacing, 6); // أقل من السابق
+    padding: map.get($spacing, 6); // أقل من السابق
     border-radius: var(--border-radius-lg);
     background: var(--card-bg);
     @include shadow-lg;
@@ -222,15 +222,15 @@ input[type="radio"] {
 
     h2 {
       text-align: center;
-      margin-bottom: map-get($spacing, 4);
+      margin-bottom: map.get($spacing, 4);
       color: var(--text-color);
     }
 
     .auth-toggle {
       display: flex;
       justify-content: center;
-      gap: map-get($spacing, 3);
-      margin-bottom: map-get($spacing, 4);
+      gap: map.get($spacing, 3);
+      margin-bottom: map.get($spacing, 4);
 
       .btn {
         min-width: 100px;
@@ -261,13 +261,13 @@ input[type="radio"] {
     }
 
     .form-group {
-      margin-bottom: map-get($spacing, 3);
+      margin-bottom: map.get($spacing, 3);
     }
 
     .btn-submit {
       width: 100%;
-      margin-top: map-get($spacing, 3);
-      padding: map-get($spacing, 2);
+      margin-top: map.get($spacing, 3);
+      padding: map.get($spacing, 2);
       font-weight: $font-weight-semibold;
       border-radius: var(--border-radius);
       @include transition(all);
@@ -367,15 +367,15 @@ input[type="file"] {
 // ==================== Responsive ====================
 @include respond-below(md) {
   .auth-wrapper {
-    padding: map-get($spacing, 3);
+    padding: map.get($spacing, 3);
 
     .auth-card {
-      padding: map-get($spacing, 4);
+      padding: map.get($spacing, 4);
       max-width: 100%;
 
       .auth-toggle {
         flex-direction: column;
-        gap: map-get($spacing, 2);
+        gap: map.get($spacing, 2);
 
         .btn {
           width: 100%;

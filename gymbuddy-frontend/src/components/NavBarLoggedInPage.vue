@@ -181,10 +181,6 @@ function handleResize() {
   isMobile.value = window.innerWidth < 768;
 }
 
-function toggleSidebar() {
-  isCollapsed.value = !isCollapsed.value;
-}
-
 function toggleHideSidebar() {
   isHidden.value = !isHidden.value;
 }

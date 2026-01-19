@@ -126,7 +126,7 @@
               <div class="goal-header">
                 <h4>{{ $t("profile.goals.dailyCalories") }}</h4>
                 <span class="goal-badge calories"
-                  >{{ Math.round(stats.daily_calories) || 0 }} kcal</span
+                  >{{ Math.round(stats?.daily_calories ?? 0) }} kcal</span
                 >
               </div>
               <div class="goal-details">
