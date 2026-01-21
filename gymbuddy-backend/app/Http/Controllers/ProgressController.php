@@ -63,7 +63,7 @@ class ProgressController extends Controller
         return response()->json([
             'success' => true,
             'data' => $progress,
-            'message' => 'Progress recorded successfully'
+            'message' => __('messages.progress_recorded')
         ]);
     }
 
@@ -73,7 +73,7 @@ class ProgressController extends Controller
         $progress = Progress::findOrFail($id);
 
         if (Auth::user()->role !== 'admin' && $progress->user_id !== Auth::id()) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized'], 403);
+            return response()->json(['success' => false, 'message' => __('messages.unauthorized')], 403);
         }
 
         return response()->json([
@@ -88,7 +88,7 @@ class ProgressController extends Controller
         $progress = Progress::findOrFail($id);
 
         if (Auth::user()->role !== 'admin' && $progress->user_id !== Auth::id()) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized'], 403);
+            return response()->json(['success' => false, 'message' => __('messages.unauthorized')], 403);
         }
 
         $validated = $request->validate([
@@ -106,7 +106,7 @@ class ProgressController extends Controller
         return response()->json([
             'success' => true,
             'data' => $progress,
-            'message' => 'Progress updated successfully'
+            'message' => __('messages.progress_updated')
         ]);
     }
 
@@ -116,14 +116,14 @@ class ProgressController extends Controller
         $progress = Progress::findOrFail($id);
 
         if (Auth::user()->role !== 'admin' && $progress->user_id !== Auth::id()) {
-            return response()->json(['success' => false, 'message' => 'Unauthorized'], 403);
+            return response()->json(['success' => false, 'message' => __('messages.unauthorized')], 403);
         }
 
         $progress->delete();
 
         return response()->json([
             'success' => true,
-            'message' => 'Progress deleted successfully'
+            'message' => __('messages.progress_deleted')
         ]);
     }
 

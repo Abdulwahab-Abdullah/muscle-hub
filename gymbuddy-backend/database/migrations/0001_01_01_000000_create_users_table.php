@@ -24,7 +24,9 @@ return new class extends Migration
             $table->string('sex')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->integer('role')->default(0); // 0 = user, 1 = admin
+            $table->integer('role')->default(0);
+            // 0 = user, 1 = admin , the best is:
+            // $table->enum('role', ['user', 'admin'])->default('user');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

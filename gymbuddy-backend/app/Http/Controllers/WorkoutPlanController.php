@@ -43,7 +43,7 @@ class WorkoutPlanController extends Controller
         if (!empty($validated['workouts']) && $duplicate = $this->hasDuplicateWorkouts($validated['workouts'])) {
             return response()->json([
                 'success' => false,
-                'message' => 'لا يمكن تكرار نفس التمرين في نفس اليوم',
+                'message' => __('messages.duplicate_workout_same_day'),
                 'duplicate' => $duplicate
             ], 422);
         }
@@ -100,7 +100,7 @@ class WorkoutPlanController extends Controller
         if (!empty($validated['workouts']) && $duplicate = $this->hasDuplicateWorkouts($validated['workouts'])) {
             return response()->json([
                 'success' => false,
-                'message' => 'لا يمكن تكرار نفس التمرين في نفس اليوم',
+                'message' => __('messages.duplicate_workout_same_day'),
                 'duplicate' => $duplicate
             ], 422);
         }

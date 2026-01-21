@@ -14,7 +14,7 @@ class UserGoalController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
         if (!$user) {
-            return response()->json(['error' => 'User not authenticated'], 401);
+            return response()->json(['error' => __('messages.user_not_authenticated')], 401);
         }
 
         $goal = UserGoal::where('user_id', $user->id)->first();
@@ -30,7 +30,7 @@ class UserGoalController extends Controller
         /** @var \App\Models\User $user */
         $user = Auth::user();
         if (!$user) {
-            return response()->json(['error' => 'User not authenticated'], 401);
+            return response()->json(['error' => __('messages.user_not_authenticated')], 401);
         }
 
         $validatedGoalData = $request->validate([
@@ -60,7 +60,7 @@ class UserGoalController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Goal saved successfully',
+            'message' => __('messages.goal_saved'),
             'goal' => $goal,
         ]);
     }

@@ -33,7 +33,7 @@ class AchievementController extends Controller
         if (!$achievement) {
             return response()->json([
                 'success' => false,
-                'message' => 'Achievement not found'
+                'message' => __('messages.achievement_unlocked')
             ], 404);
         }
 
@@ -42,7 +42,7 @@ class AchievementController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Achievement unlocked!',
+            'message' => __('messages.achievement_unlocked'),
             'achievement' => $achievement,
         ]);
     }

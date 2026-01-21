@@ -21,8 +21,11 @@ class AuthController extends Controller
     {
         $user = Auth::user();
         if (!$user) {
-            return response()->json(['error' => 'User not authenticated'], 401);
+            return response()->json([
+                'error' => __('messages.user_not_authenticated')
+            ], 401);
         }
+
         $info = [
             'id' => $user->id,
             'name' => $user->name,
@@ -35,7 +38,6 @@ class AuthController extends Controller
                 ? asset('storage/' . $user->avatar)
                 : null,
         ];
-
 
         return response()->json($info);
     }
@@ -63,11 +65,11 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
+            'message' => __('messages.avatar_uploaded'),
             'avatar_url' => asset('storage/' . $path),
         ]);
     }
 
-    // في AuthController.php
     public function deleteAvatar(Request $request)
     {
         /** @var \App\Models\User $user */
@@ -81,7 +83,7 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Avatar deleted successfully'
+            'message' => __('messages.avatar_deleted')
         ]);
     }
 
@@ -181,7 +183,9 @@ class AuthController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Too many update attempts. Please try again in ' . ceil($seconds / 60) . ' minutes.',
+                'message' => __('messages.too_many_update_attempts', [
+                    'minutes' => ceil($seconds / 60)
+                ]),
                 'retry_after' => $seconds
             ], Response::HTTP_TOO_MANY_REQUESTS);
         }
@@ -213,6 +217,7 @@ class AuthController extends Controller
             $user->weight = $validated['weight'];
             $hasChanges = true;
         }
+
         if (isset($validated['sex']) && $user->sex !== $validated['sex']) {
             $user->sex = $validated['sex'];
             $hasChanges = true;
@@ -224,18 +229,18 @@ class AuthController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Profile updated successfully',
+                'message' => __('messages.profile_updated'),
                 'user' => $user
             ]);
         }
 
         return response()->json([
             'success' => true,
-            'message' => 'No changes detected',
+            'message' => __('messages.no_changes_detected'),
             'user' => $user
         ]);
     }
-    // في AuthController.php
+
     public function changePassword(Request $request)
     {
         /** @var \App\Models\User $user */
@@ -249,7 +254,7 @@ class AuthController extends Controller
         if (!Hash::check($validated['current_password'], $user->password)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Current password is incorrect'
+                'message' => __('messages.current_password_incorrect')
             ], 401);
         }
 
@@ -258,7 +263,7 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Password changed successfully'
+            'message' => __('messages.password_changed')
         ]);
     }
 
@@ -269,7 +274,6 @@ class AuthController extends Controller
 
         $cookie = Cookie::forget('auth_token');
 
-        // امسح من localStorage كمان
         return response()->json([
             'message' => __('messages.logout_success')
         ])->withCookie($cookie);

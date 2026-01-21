@@ -79,13 +79,13 @@ class NutritionPlanController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'Plan saved successfully',
+                'message' => __('messages.plan_saved'),
                 'data' => $plan->load('meals')
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
-                'message' => 'Failed to save plan',
+                'message' => __('messages.failed_to_save_plan'),
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -173,13 +173,13 @@ class NutritionPlanController extends Controller
             DB::commit();
 
             return response()->json([
-                'message' => 'Plan updated successfully',
+                'message' => __('messages.plan_updated'),
                 'data' => $plan->load('meals')
             ]);
         } catch (\Exception $e) {
             DB::rollBack();
             return response()->json([
-                'message' => 'Failed to update plan',
+                'message' => __('messages.failed_to_update_plan'),
                 'error' => $e->getMessage()
             ], 500);
         }
@@ -198,7 +198,7 @@ class NutritionPlanController extends Controller
             ->delete();
 
         return response()->json([
-            'message' => 'Today\'s meals deleted successfully'
+            'message' => __('messages.meals_deleted')
         ]);
     }
 

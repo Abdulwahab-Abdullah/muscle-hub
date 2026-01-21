@@ -18,7 +18,9 @@ class ChatBotController extends Controller
 
         $userId = Auth::id();
         if (!$userId) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json([
+                'message' => __('messages.unauthorized')
+            ], 401);
         }
 
         // حفظ رسالة المستخدم
@@ -56,11 +58,11 @@ class ChatBotController extends Controller
             $apiKey = env('GEMINI_API_KEY');
 
             if (empty($apiKey)) {
-                throw new \Exception('Gemini API key is not configured');
+                throw new \Exception(__('messages.gemini_api_key_missing'));
             }
 
             // ✅ النموذج الصحيح
-            $model = 'gemini-2.5-flash'; // يمكنك تغييره إلى gemini-2.5-pro أو gemini-pro-latest
+            $model = 'gemini-2.5-flash';
 
             $response = Http::timeout(60)
                 ->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent?key={$apiKey}", [
@@ -99,12 +101,13 @@ class ChatBotController extends Controller
 
             if (!$response->successful()) {
                 Log::error('Gemini API Error: ' . $response->body());
-                throw new \Exception('AI service is temporarily unavailable. Please try again later.');
+                throw new \Exception(__('messages.ai_service_unavailable'));
             }
 
             $data = $response->json();
 
-            $botReply = $data['candidates'][0]['content']['parts'][0]['text'] ?? "Sorry, I couldn't generate a response.";
+            $botReply = $data['candidates'][0]['content']['parts'][0]['text']
+                ?? __('messages.bot_failed');
 
             // حفظ رد البوت
             $botMessage = AiChatHistory::create([
@@ -124,8 +127,10 @@ class ChatBotController extends Controller
 
             return response()->json([
                 'success' => false,
-                'error' => 'Unable to process your request',
-                'message' => config('app.debug') ? $e->getMessage() : 'AI service is temporarily unavailable. Please try again later.'
+                'error' => __('messages.unexpected_error'),
+                'message' => config('app.debug')
+                    ? $e->getMessage()
+                    : __('messages.ai_service_unavailable')
             ], 500);
         }
     }
@@ -133,22 +138,35 @@ class ChatBotController extends Controller
     public function history(Request $request)
     {
         $userId = Auth::id();
-        if (!$userId) return response()->json(['message' => 'Unauthorized'], 401);
+        if (!$userId) {
+            return response()->json([
+                'message' => __('messages.unauthorized')
+            ], 401);
+        }
 
         if (Auth::user()->role === 'admin' && $request->has('user_id')) {
             $validated = $request->validate(['user_id' => 'required|exists:users,id']);
             $userId = $validated['user_id'];
         }
 
-        $history = AiChatHistory::where('user_id', $userId)->orderBy('created_at', 'asc')->get();
+        $history = AiChatHistory::where('user_id', $userId)
+            ->orderBy('created_at', 'asc')
+            ->get();
 
-        return response()->json(['success' => true, 'history' => $history]);
+        return response()->json([
+            'success' => true,
+            'history' => $history
+        ]);
     }
 
     public function clearHistory(Request $request)
     {
         $userId = Auth::id();
-        if (!$userId) return response()->json(['message' => 'Unauthorized'], 401);
+        if (!$userId) {
+            return response()->json([
+                'message' => __('messages.unauthorized')
+            ], 401);
+        }
 
         if (Auth::user()->role === 'admin' && $request->has('user_id')) {
             $validated = $request->validate(['user_id' => 'required|exists:users,id']);
@@ -159,7 +177,7 @@ class ChatBotController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Chat history cleared successfully',
+            'message' => __('messages.chat_cleared'),
             'deleted_count' => $deletedCount
         ]);
     }
