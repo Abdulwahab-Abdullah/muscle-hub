@@ -120,10 +120,12 @@ watch(
   },
 );
 
-// تحديث الاتجاه عند تغيير اللغة
+// ✅ تحديث الاتجاه واللغة وحفظها في localStorage
 watch(locale, (newLocale) => {
   document.documentElement.dir = newLocale === "ar" ? "rtl" : "ltr";
   document.documentElement.lang = newLocale;
+  localStorage.setItem("locale", newLocale); // ✅ حفظ اللغة
+  console.log("🌍 Language changed to:", newLocale);
 });
 
 onMounted(() => {
@@ -134,6 +136,7 @@ onMounted(() => {
   locale.value = savedLocale as "en" | "ar";
   document.documentElement.dir = savedLocale === "ar" ? "rtl" : "ltr";
   document.documentElement.lang = savedLocale;
+  console.log("🌍 Initial language:", savedLocale);
 });
 </script>
 
