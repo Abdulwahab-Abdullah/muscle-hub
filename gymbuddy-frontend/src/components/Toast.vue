@@ -62,7 +62,7 @@ onBeforeUnmount(() => {
 });
 </script>
 
-<style scoped>
+<!-- <style scoped>
 .toast-card {
   background-color: #38b6ff;
   color: white;
@@ -123,4 +123,4 @@ onBeforeUnmount(() => {
 [dir="rtl"] .toast-card.show {
   transform: translateX(0) translateY(0) rotate(0deg) scale(1);
 }
-</style>
+</style> -->

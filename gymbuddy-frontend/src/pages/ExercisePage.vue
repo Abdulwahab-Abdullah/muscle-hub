@@ -288,14 +288,14 @@ h1:first-child {
 }
 
 /* Toast */
-.toast-message {
-  background-color: var(--primary-color);
-  animation:
-    fadein 0.3s,
-    fadeout 0.3s 2.2s;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+// .toast-message {
+//   background-color: var(--primary-color);
+//   animation:
+//     fadein 0.3s,
+//     fadeout 0.3s 2.2s;
+//   font-weight: 500;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+// }
 
 @keyframes fadein {
   from {
