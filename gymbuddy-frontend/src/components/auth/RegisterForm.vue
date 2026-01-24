@@ -140,7 +140,6 @@ async function handleRegister() {
       name: form.value.name,
       email: form.value.email,
       password: form.value.password,
-      password_confirmation: form.value.confirmPassword,
     });
 
     if (res.data.token) {
