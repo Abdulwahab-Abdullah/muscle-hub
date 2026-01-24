@@ -6,7 +6,7 @@
         <i class="fa-solid fa-dumbbell"></i>
         {{ t("contact.title") }}
       </h5>
-      <p class="lead text-muted mb-2">
+      <p class="lead mb-2">
         {{ t("contact.subtitle") }}
       </p>
     </section>
