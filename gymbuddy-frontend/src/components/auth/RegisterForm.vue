@@ -1,5 +1,5 @@
 <template>
-  <div class="auth-wrapper">
+  <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="auth-card">
       <h2 class="text-center mb-4">{{ t("authRegister.title") }}</h2>
       <form @submit.prevent="handleRegister">

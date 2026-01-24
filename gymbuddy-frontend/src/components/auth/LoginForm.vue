@@ -1,5 +1,7 @@
 <template>
-  <div class="auth-wrapper">
+  <div
+    class="auth-page d-flex justify-content-center align-items-center vh-100"
+  >
     <div class="auth-card">
       <h2 class="text-center mb-4">{{ t("authLogin.title") }}</h2>
       <p class="text-center text-muted mb-4">
