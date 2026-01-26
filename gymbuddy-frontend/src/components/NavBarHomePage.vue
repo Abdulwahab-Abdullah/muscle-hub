@@ -22,7 +22,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+        <ul class="navbar-nav mx-auto mb-lg-0 align-items-center">
           <li class="nav-item">
             <router-link
               :to="`/${locale}/home`"
@@ -71,8 +71,10 @@
 </template>
 
 <style scoped>
-ul {
-  flex-direction: row !important;
+.nav-controls {
+  padding: 0.75rem 1rem;
+  margin: 0 auto;
+  width: fit-content;
 }
 </style>
 

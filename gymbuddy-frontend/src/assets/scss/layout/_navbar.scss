@@ -9,7 +9,6 @@
 
   .container {
     @include flex-between;
-    padding: spacing(4) spacing(5);
   }
 
   // Logo
@@ -68,6 +67,7 @@
 
   // Nav Links
   .navbar-collapse {
+    background-color: var(--background-color);
     @include respond-below(lg) {
       margin-top: spacing(4);
     }
