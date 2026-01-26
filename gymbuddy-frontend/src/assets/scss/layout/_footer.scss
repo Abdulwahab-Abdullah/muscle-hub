@@ -27,13 +27,7 @@ footer {
     color: $white;
 
     i {
-      transform: rotate(-45deg);
       color: var(--primary-color);
-      @include transition(transform, color);
-
-      &:hover {
-        transform: rotate(-45deg) scale(1.2);
-      }
     }
   }
 

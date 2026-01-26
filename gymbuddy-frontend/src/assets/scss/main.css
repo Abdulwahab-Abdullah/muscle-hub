@@ -3290,14 +3290,7 @@ footer h3 {
   color: #ffffff;
 }
 footer h3 i {
-  transform: rotate(-45deg);
   color: var(--primary-color);
-  transition-property: transform, color;
-  transition-duration: var(--transition-duration-base);
-  transition-timing-function: var(--transition-timing-base);
-}
-footer h3 i:hover {
-  transform: rotate(-45deg) scale(1.2);
 }
 footer p {
   color: rgba(var(--text-color-rgb), 0.7);
