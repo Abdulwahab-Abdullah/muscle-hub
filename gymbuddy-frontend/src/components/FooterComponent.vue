@@ -3,9 +3,12 @@
     <div class="container">
       <div class="row">
         <!-- Logo & Description -->
-        <div class="col-md-4 mb-2 mb-md-0">
-          <h3 class="fw-bold">
-            <i class="fa-solid fa-dumbbell"></i> {{ $t("logo.appName") }}
+        <div
+          class="col-md-4 mb-2 mb-md-0 d-flex flex-column align-items-center justify-content-center"
+        >
+          <h3 class="fw-bold position-relative">
+            <i class="fa-solid fa-dumbbell position-absolute"></i>
+            {{ $t("logo.appName") }}
           </h3>
           <p class="mb-1">
             {{ $t("footer.description") }}
@@ -53,3 +56,15 @@
     </div>
   </footer>
 </template>
+
+<style scoped lang="scss">
+h3 {
+  width: fit-content;
+  i {
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+  }
+}
+</style>
