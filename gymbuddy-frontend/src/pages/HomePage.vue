@@ -27,12 +27,15 @@
             v-for="(service, idx) in services"
             :key="idx"
           >
-            <div class="card service-card p-0">
+            <div class="card service-card p-0 position-relative">
               <img
                 :src="service.src"
                 class="card-img-top"
                 :alt="t(`home.services.cards.${idx}.title`)"
               />
+              <i
+                class="fa-solid fa-hand-pointer tap-icon position-absolute"
+              ></i>
               <div class="card-body">
                 <h5 class="card-title">
                   {{ t(`home.services.cards.${idx}.title`) }}
@@ -406,5 +409,57 @@ onUnmounted(() => {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+</style>
+
+<style scoped lang="scss">
+/* للجوال والتابلت (touch devices) */
+@media (hover: none) and (pointer: coarse) {
+  .service-card:hover {
+    animation: none;
+  }
+
+  /* أيقونة اللمس تختفي عند الضغط */
+  .service-card:hover .tap-icon {
+    opacity: 0 !important;
+    animation: none !important;
+  }
+
+  .tap-icon {
+    width: fit-content;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    pointer-events: none;
+    animation: tapAnimation 1.5s infinite;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* للماوس (desktop) فقط */
+@media (hover: hover) and (pointer: fine) {
+  .tap-icon {
+    display: none;
+  }
+}
+
+@keyframes tapAnimation {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }
 </style>
