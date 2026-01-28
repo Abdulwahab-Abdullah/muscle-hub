@@ -48,10 +48,6 @@
 
   // ========== Navbar ==========
   .navbar {
-    .navbar-nav {
-      flex-direction: row-reverse;
-    }
-
     .nav-item {
       margin-left: 0;
       margin-right: spacing(4);
@@ -157,7 +153,7 @@
   }
 
   // ========== Lists ==========
-  ul:not(.nav-menu),
+  ul:not(.nav-menu and .navbar-nav),
   ol {
     padding-right: 0;
     padding-left: spacing(5);

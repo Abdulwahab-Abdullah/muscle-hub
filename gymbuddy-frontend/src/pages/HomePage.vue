@@ -62,11 +62,14 @@
           <div class="col-lg-6">
             <h2 class="mb-4" v-html="t('home.intro.heading')"></h2>
             <ul>
-              <li v-for="fIdx in 5" :key="fIdx">
-                <i :class="featureIcons[fIdx]"></i>
+              <li
+                v-for="(feature, idx) in tm('home.intro.features')"
+                :key="idx"
+              >
+                <i :class="featureIcons[idx as unknown as number]"></i>
                 <span>
-                  <strong>{{ t(`home.intro.features.${fIdx}.title`) }}</strong>
-                  {{ t(`home.intro.features.${fIdx}.text`) }}
+                  <strong>{{ rt(feature.title) }}</strong>
+                  {{ rt(feature.text) }}
                 </span>
               </li>
             </ul>
