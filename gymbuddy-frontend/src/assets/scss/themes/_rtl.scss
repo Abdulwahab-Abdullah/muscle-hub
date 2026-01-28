@@ -86,11 +86,7 @@
   .show-sidebar-btn {
     left: auto;
     right: 0;
-    border-radius: 8px 0 0 8px;
-
-    i::before {
-      content: "\f104"; // Left arrow for RTL
-    }
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
   }
 
   // ========== Cards ==========
@@ -161,7 +157,7 @@
   }
 
   // ========== Lists ==========
-  ul,
+  ul:not(.nav-menu),
   ol {
     padding-right: 0;
     padding-left: spacing(5);

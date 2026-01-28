@@ -16,7 +16,10 @@
           @click="toggleHideSidebar"
           :title="t('sidebar.hideSidebar')"
         >
-          <i class="fa-solid fa-angles-left"></i>
+          <i
+            class="fa-solid"
+            :class="[locale == 'ar' ? 'fa-angles-right' : 'fa-angles-left']"
+          ></i>
         </div>
 
         <!-- Logo -->
@@ -112,7 +115,10 @@
       @click="toggleHideSidebar"
       :title="t('sidebar.showSidebar')"
     >
-      <i class="fa-solid fa-angles-right"></i>
+      <i
+        class="fa-solid"
+        :class="[locale == 'ar' ? 'fa-angles-left' : 'fa-angles-right']"
+      ></i>
     </button>
   </div>
 </template>

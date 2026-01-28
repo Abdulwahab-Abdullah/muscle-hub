@@ -144,6 +144,7 @@ onMounted(() => {
 .app-layout {
   display: flex;
   min-height: 100vh;
+  overflow-x: hidden; /* ✅ إضافة */
 }
 
 .main-content {
@@ -152,7 +153,10 @@ onMounted(() => {
   flex-direction: column;
   flex-grow: 1;
   min-height: 100vh;
+  width: 100%; /* ✅ إضافة */
+  max-width: 100%; /* ✅ إضافة */
   transition: margin 0.25s ease;
+  position: absolute;
 }
 
 .main-content.sidebar-hidden {
@@ -172,19 +176,23 @@ onMounted(() => {
 .page-content {
   flex-grow: 1;
   padding: 1.5rem;
+  width: 100%; /* ✅ إضافة */
+  max-width: 100%; /* ✅ إضافة */
+  overflow-x: hidden; /* ✅ إضافة */
 }
 
 @media (max-width: 767px) {
   .main-content {
-    margin-left: 75px;
+    margin-left: 0; /* ✅ تغيير من 75px إلى 0 */
   }
+
   .main-content.sidebar-hidden {
     margin-left: 0;
   }
 
   [dir="rtl"] .main-content {
     margin-left: 0;
-    margin-right: 75px;
+    margin-right: 0; /* ✅ تغيير من 75px إلى 0 */
   }
 
   [dir="rtl"] .main-content.sidebar-hidden {
